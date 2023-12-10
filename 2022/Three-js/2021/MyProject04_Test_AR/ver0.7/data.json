@@ -1,0 +1,49 @@
+{
+	"locations": [
+		{
+			"name": "大同大学A棟",
+			"lat": 35.07940175163114,
+			"lng": 136.9060881614843,
+			"distance": -1,
+			"total": 4,
+			"scale": [0.05, 0.05, 0.05],
+			"gltf": "./assets/gltf/space/space.gltf"
+		},
+		{
+			"name": "大同大学X棟",
+			"lat": 35.078932004089204,
+			"lng": 136.90752582764105,
+			"distance": -1,
+			"total": 8,
+			"scale": [0.1, 0.1, 0.1],
+			"gltf": "./assets/gltf/space/space.gltf"
+		},
+		{
+			"name": "アオキスーパー",
+			"lat": 35.08001195235231,
+			"lng": 136.90827685210147,
+			"distance": -1,
+			"total": 16,
+			"scale": [0.1, 0.1, 0.1],
+			"gltf": "./assets/gltf/space/space.gltf"
+		},
+		{
+			"name": "鯱バス株式会社",
+			"lat": 35.079744169205306,
+			"lng": 136.9073541628381,
+			"distance": -1,
+			"total": 32,
+			"scale": [0.1, 0.1, 0.1],
+			"gltf": "./assets/gltf/space/space.gltf"
+		},
+		{
+			"name": "大同町駅",
+			"lat": 35.07966514022323,
+			"lng": 136.90937118460636,
+			"distance": -1,
+			"total": 64,
+			"scale": [0.1, 0.1, 0.1],
+			"gltf": "./assets/gltf/space/space.gltf"
+		}
+	]
+}

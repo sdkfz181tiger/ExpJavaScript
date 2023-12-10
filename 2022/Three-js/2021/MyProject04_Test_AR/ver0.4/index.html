@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		html{width: 100%; height: 100%;}
+		body{
+			width: 100%; height: 100%;
+			margin: 0px; padding: 0px;
+		}
+		#log{
+			width: auto; height: auto;
+			margin: 0px; padding: 10px;
+			position: absolute;
+		}
+		#log li{
+			list-style-type:none;
+		}
+		#outer{
+			width: 100%; height: 100%;
+			margin: 0px; padding: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		#inner{
+			width: auto; height: auto;
+			margin: 0px; padding: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<ul id="log"></ul>
+	<div id="outer">
+		<div id="inner"></div>
+	</div>
+	<script type="module" src="./custom.js" defer></script>
+</body>
+</html>

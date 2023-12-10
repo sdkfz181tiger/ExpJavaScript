@@ -1,0 +1,11 @@
+Model Information:
+* title:	Earth 2.0
+* source:	https://sketchfab.com/3d-models/earth-20-67f9a7ebd3a64b5abd1a9c018648da0b
+* author:	Freemodels (https://sketchfab.com/vivaanarora9)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Earth 2.0" (https://sketchfab.com/3d-models/earth-20-67f9a7ebd3a64b5abd1a9c018648da0b) by Freemodels (https://sketchfab.com/vivaanarora9) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
