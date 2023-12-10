@@ -1,0 +1,54 @@
+/* CSS */
+
+html, body{
+	margin: 0px; padding: 0px;
+	overflow: scroll;
+	overflow-style: scroll;
+	overflow-y: scroll;
+}
+
+.navbar-brand img{
+	width: 28px; height: auto;
+	margin: 0px 5px; padding: 0px;
+	border-radius: 14px;
+}
+
+#my-canvas{
+	width: auto; height: auto;
+	margin: 0 auto; padding: 0px;
+	background: orange;
+}
+
+#info_bombs{
+	line-height: 1.8em;
+}
+
+#info_bombs img{
+	width: 2em; height: auto;
+	margin: 0px 5px; padding: 0px;
+}
+
+#info_bombs strong{
+	font-size: 2.0em;
+}
+
+.xd-content{
+	background: #ffffffcc;
+}
+
+.xd-title{
+	font-size: 1.4em;
+}
+
+.xd-body{
+	font-size: 1.4em;
+}
+
+.xd-button{
+	font-size: 1.4em;
+}
+
+.xd-body img{
+	width: 2em; height: auto;
+	margin: 0px 10px; padding: 0px;
+}

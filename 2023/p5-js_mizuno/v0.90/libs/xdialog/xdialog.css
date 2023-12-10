@@ -1,0 +1,1311 @@
+/* General styles for dialogs */
+
+
+/*
+Styles for the html/body for special dialog where we want 3d effects
+Note that we need a xd-container wrapping all content on the page for the
+perspective effects (not including the dialogs and the overlay).
+*/
+
+.xd-perspective,
+.xd-perspective body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.xd-perspective body {
+    background: #222;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+}
+
+.xd-container {
+    background: #fffffe;
+    min-height: 100%;
+}
+
+.xd-dialog {
+    position: fixed;
+    width: auto;
+    max-width: 100%;
+    min-width: 320px;
+    height: auto;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.xd-center {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.xd-center-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.xd-show {
+    visibility: visible;
+}
+
+.xd-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.xd-show-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.xd-spin-overlay {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+
+/* Content styles */
+
+.xd-content {
+    color: #000;
+    background: #fffffe;
+    position: relative;
+    border-radius: 3px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 40px 0 rgba(0, 0, 0, 0.8);
+}
+
+.xd-content .xd-title {
+    margin: 0;
+    padding: 0.6em;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: 300;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px 3px 0 0;
+    border-bottom: #ccc 1px solid;
+}
+
+.xd-content .xd-body {
+    padding: 1em 2em;
+    font-weight: 300;
+}
+
+.xd-content .xd-body .xd-body-inner {
+    line-height: initial;
+    overflow: auto;
+    max-height: calc(100vh - 11em);
+}
+
+.xd-content .xd-buttons {
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.xd-content .xd-body+.xd-buttons {
+    padding-top: 0em;
+}
+
+.xd-content .xd-button {
+    border: none;
+    padding: 0.6em 1.2em;
+    background: #9e9e9e;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    min-width: 10em;
+    margin: 0.2em 1em;
+    border-radius: 2px;
+    outline: none;
+}
+
+.xd-content .xd-button.xd-ok {
+    background: #4caf50;
+}
+
+.xd-content .xd-button.xd-delete {
+    background: #f44336;
+}
+
+.xd-content .xd-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* info styles */
+
+.xd-info.xd-dialog {
+    top: 12px;
+}
+
+.xd-info .xd-content {
+    background: #73B573;
+    color: white;
+    opacity: 0.9;
+    box-shadow: 0 0 12px #999;
+}
+
+
+/* warn styles */
+
+.xd-warn.xd-dialog {
+    top: 12px;
+}
+
+.xd-warn .xd-content {
+    background: #f89406;
+    color: white;
+    opacity: 0.9;
+    box-shadow: 0 0 12px #999;
+}
+
+
+/* error styles */
+
+.xd-error .xd-title {
+    background: #670000;
+    color: white;
+    border-bottom: #C46258 1px solid;
+    opacity: 1;
+}
+
+.xd-error .xd-content {
+    background: #7C0000;
+    color: white;
+    opacity: 0.9;
+}
+
+.xd-error .xd-content .xd-button {
+    background: #A44238;
+}
+
+
+/* fatal styles */
+
+.xd-fatal.xd-dialog {
+    width: 100%;
+}
+
+.xd-fatal .xd-title {
+    background: #430000;
+    color: white;
+    border-bottom: #C46258 1px solid;
+    opacity: 1;
+    border-radius: 0;
+}
+
+.xd-fatal .xd-content {
+    background: #580000;
+    color: white;
+    opacity: 0.9;
+}
+
+.xd-fatal~.xd-overlay {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Individual dialog styles with animations/transitions */
+
+
+/* Effect 1: Fade in and scale up */
+
+.xd-effect-1 .xd-content {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-1 .xd-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Effect 2: Slide from the right */
+
+.xd-effect-2 .xd-content {
+    -webkit-transform: translateX(20%);
+    -moz-transform: translateX(20%);
+    -ms-transform: translateX(20%);
+    transform: translateX(20%);
+    opacity: 0;
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    -moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+
+.xd-show.xd-effect-2 .xd-content {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* Effect 3: Slide from the bottom */
+
+.xd-effect-3 .xd-content {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-3 .xd-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* Effect 4: Newspaper */
+
+.xd-effect-4 .xd-content {
+    -webkit-transform: scale(0) rotate(360deg);
+    -moz-transform: scale(0) rotate(360deg);
+    -ms-transform: scale(0) rotate(360deg);
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+}
+
+.xd-show.xd-effect-4~.xd-overlay,
+.xd-effect-4 .xd-content {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.xd-show.xd-effect-4 .xd-content {
+    -webkit-transform: scale(1) rotate(0deg);
+    -moz-transform: scale(1) rotate(0deg);
+    -ms-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 5: fall */
+
+.xd-effect-5.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-5 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(600px) rotateX(20deg);
+    -moz-transform: translateZ(600px) rotateX(20deg);
+    -ms-transform: translateZ(600px) rotateX(20deg);
+    transform: translateZ(600px) rotateX(20deg);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.xd-show.xd-effect-5 .xd-content {
+    -webkit-transform: translateZ(0px) rotateX(0deg);
+    -moz-transform: translateZ(0px) rotateX(0deg);
+    -ms-transform: translateZ(0px) rotateX(0deg);
+    transform: translateZ(0px) rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 6: side fall */
+
+.xd-effect-6.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-6 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translate(30%) translateZ(600px) rotate(10deg);
+    -moz-transform: translate(30%) translateZ(600px) rotate(10deg);
+    -ms-transform: translate(30%) translateZ(600px) rotate(10deg);
+    transform: translate(30%) translateZ(600px) rotate(10deg);
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+}
+
+.xd-show.xd-effect-6 .xd-content {
+    -webkit-transform: translate(0%) translateZ(0) rotate(0deg);
+    -moz-transform: translate(0%) translateZ(0) rotate(0deg);
+    -ms-transform: translate(0%) translateZ(0) rotate(0deg);
+    transform: translate(0%) translateZ(0) rotate(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 7:  slide and stick to top */
+
+.xd-effect-7 {
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.xd-effect-7 .xd-content {
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    transform: translateY(-200%);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.xd-show.xd-effect-7 .xd-content {
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+    border-radius: 0 0 3px 3px;
+    opacity: 1;
+}
+
+
+/* Effect 8: 3D flip horizontal */
+
+.xd-effect-8.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-8 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateY(-70deg);
+    -moz-transform: rotateY(-70deg);
+    -ms-transform: rotateY(-70deg);
+    transform: rotateY(-70deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.xd-show.xd-effect-8 .xd-content {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 9: 3D flip vertical */
+
+.xd-effect-9.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-9 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-70deg);
+    -moz-transform: rotateX(-70deg);
+    -ms-transform: rotateX(-70deg);
+    transform: rotateX(-70deg);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 0;
+}
+
+.xd-show.xd-effect-9 .xd-content {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 10: 3D sign */
+
+.xd-effect-10.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-10 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotateX(-60deg);
+    -moz-transform: rotateX(-60deg);
+    -ms-transform: rotateX(-60deg);
+    transform: rotateX(-60deg);
+    -webkit-transform-origin: 50% 0;
+    -moz-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-10 .xd-content {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 11: Super scaled */
+
+.xd-effect-11 .xd-content {
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-11 .xd-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Effect 12:  Just me */
+
+.xd-effect-12 .xd-content {
+    box-shadow: none;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-12~.xd-overlay {
+    background: #fffffe;
+}
+
+.xd-effect-12 .xd-content .xd-title,
+.xd-effect-12 .xd-content {
+    background: transparent;
+}
+
+.xd-show.xd-effect-12 .xd-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Effect 13: 3D slit */
+
+.xd-effect-13.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-13 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-animation: slit2 .7s forwards ease-in;
+    -moz-animation: slit2 .7s forwards ease-in;
+    animation: slit2 .7s forwards ease-in;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    transition: all 0.7s;
+}
+
+.xd-show.xd-effect-13 .xd-content {
+    -webkit-animation: slit .7s forwards ease-out;
+    -moz-animation: slit .7s forwards ease-out;
+    animation: slit .7s forwards ease-out;
+}
+
+.xd-effect-13~.xd-overlay {
+    -webkit-transition: all 0.3s 0.4s;
+    -moz-transition: all 0.3s 0.4s;
+    transition: all 0.3s 0.4s;
+}
+
+.xd-show.xd-effect-13~.xd-overlay {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+@-webkit-keyframes slit {
+    0% {
+        -webkit-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        -webkit-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes slit {
+    0% {
+        -moz-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        -moz-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slit {
+    0% {
+        transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slit2 {
+    0% {
+        -webkit-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        -webkit-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes slit2 {
+    0% {
+        -moz-transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        -moz-transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slit2 {
+    0% {
+        transform: translateZ(0) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateZ(-250px) rotateY(89deg);
+        opacity: .5;
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateZ(-3000px) rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+
+/* Effect 14:  3D Rotate from bottom */
+
+.xd-effect-14.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-14 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateY(100%) rotateX(90deg);
+    -moz-transform: translateY(100%) rotateX(90deg);
+    -ms-transform: translateY(100%) rotateX(90deg);
+    transform: translateY(100%) rotateX(90deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.xd-show.xd-effect-14 .xd-content {
+    -webkit-transform: translateY(0%) rotateX(0deg);
+    -moz-transform: translateY(0%) rotateX(0deg);
+    -ms-transform: translateY(0%) rotateX(0deg);
+    transform: translateY(0%) rotateX(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 15:  3D Rotate in from left */
+
+.xd-effect-15.xd-dialog {
+    -webkit-perspective: 1300px;
+    -moz-perspective: 1300px;
+    perspective: 1300px;
+}
+
+.xd-effect-15 .xd-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    -moz-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    -ms-transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    transform: translateZ(100px) translateX(-30%) rotateY(90deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-15 .xd-content {
+    -webkit-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    -moz-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    -ms-transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    transform: translateZ(0px) translateX(0%) rotateY(0deg);
+    opacity: 1;
+}
+
+
+/* Effect 16:  Blur */
+
+.xd-show.xd-effect-16~.xd-container {
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    filter: blur(3px);
+}
+
+.xd-effect-16 .xd-content {
+    -webkit-transform: translateY(-5%);
+    -moz-transform: translateY(-5%);
+    -ms-transform: translateY(-5%);
+    transform: translateY(-5%);
+    opacity: 0;
+}
+
+.xd-show.xd-effect-16~.xd-container,
+.xd-effect-16 .xd-content {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-16 .xd-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* Effect 17:  Slide in from bottom with perspective on xd-container */
+
+.xd-effect-17~.xd-container {
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform 0.3s 0.2s;
+    -moz-transition: -moz-transform 0.3s 0.2s;
+    transition: transform 0.3s 0.2s;
+}
+
+.xd-effect-17~.xd-container,
+.xd-effect-17~.xd-overlay {
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    -ms-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: 50% 0%;
+    -moz-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.xd-effect-17 .xd-content {
+    opacity: 0;
+    -webkit-transform: translateY(200%);
+    -moz-transform: translateY(200%);
+    -ms-transform: translateY(200%);
+    transform: translateY(200%);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.xd-show.xd-effect-17~.xd-overlay {
+    -webkit-transition: all 0.3s 0.2s;
+    -moz-transition: all 0.3s 0.2s;
+    transition: all 0.3s 0.2s;
+}
+
+.xd-show.xd-effect-17~.xd-container {
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.xd-show.xd-effect-17~.xd-container,
+.xd-show.xd-effect-17~.xd-overlay {
+    -webkit-transform: rotateX(-2deg);
+    -moz-transform: rotateX(-2deg);
+    -ms-transform: rotateX(-2deg);
+    transform: rotateX(-2deg);
+}
+
+.xd-show.xd-effect-17 .xd-content {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: all 0.3s 0.2s;
+    -moz-transition: all 0.3s 0.2s;
+    transition: all 0.3s 0.2s;
+}
+
+
+/* Effect 18:  Slide from right with perspective on xd-container */
+
+.xd-effect-18~.xd-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.xd-effect-18~.xd-overlay {
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s;
+}
+
+.xd-show.xd-effect-18~.xd-overlay {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.xd-effect-18~.xd-container,
+.xd-effect-18~.xd-overlay {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    -moz-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-animation: rotateRightSideFirst2 0.5s 0.1s backwards ease-out;
+    -moz-animation: rotateRightSideFirst2 0.5s 0.1s backwards ease-out;
+    animation: rotateRightSideFirst2 0.5s 0.1s backwards ease-out;
+}
+
+.xd-show.xd-effect-18~.xd-container,
+.xd-show.xd-effect-18~.xd-overlay {
+    -webkit-animation: rotateRightSideFirst 0.5s forwards ease-in;
+    -moz-animation: rotateRightSideFirst 0.5s forwards ease-in;
+    animation: rotateRightSideFirst 0.5s forwards ease-in;
+}
+
+.xd-effect-18 .xd-content {
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -ms-transform: translateX(200%);
+    transform: translateX(200%);
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.xd-show.xd-effect-18 .xd-content {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s;
+}
+
+@-webkit-keyframes rotateRightSideFirst {
+    0% {
+        -webkit-transform: translateZ(0px) rotateY(0deg);
+    }
+    50% {
+        -webkit-transform: translateZ(-50px) rotateY(5deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+    100% {
+        -webkit-transform: translateZ(-200px);
+    }
+}
+
+@-moz-keyframes rotateRightSideFirst {
+    0% {
+        -moz-transform: translateZ(0px) rotateY(0deg);
+    }
+    50% {
+        -moz-transform: translateZ(-50px) rotateY(5deg);
+        -moz-animation-timing-function: ease-out;
+    }
+    100% {
+        -moz-transform: translateZ(-200px);
+    }
+}
+
+@keyframes rotateRightSideFirst {
+    0% {
+        transform: translateZ(0px) rotateY(0deg);
+    }
+    50% {
+        transform: translateZ(-50px) rotateY(5deg);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translateZ(-200px);
+    }
+}
+
+@-webkit-keyframes rotateRightSideFirst2 {
+    0% {
+        -webkit-transform: translateZ(-200px);
+        -webkit-animation-timing-function: ease-in;
+    }
+    50% {
+        -webkit-transform: translateZ(-50px) rotateY(5deg);
+    }
+    100% {
+        -webkit-transform: translateZ(0px) rotateY(0deg);
+    }
+}
+
+@-moz-keyframes rotateRightSideFirst2 {
+    0% {
+        -moz-transform: translateZ(-200px);
+        -moz-animation-timing-function: ease-in;
+    }
+    50% {
+        -moz-transform: translateZ(-50px) rotateY(5deg);
+    }
+    100% {
+        -moz-transform: translateZ(0px) rotateY(0deg);
+    }
+}
+
+@keyframes rotateRightSideFirst2 {
+    0% {
+        transform: translateZ(-200px);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: translateZ(-50px) rotateY(5deg);
+    }
+    100% {
+        transform: translateZ(0px) rotateY(0deg);
+    }
+}
+
+
+/* Effect 19:  Slip in from the top with perspective on xd-container */
+
+.xd-effect-19~.xd-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.xd-effect-19~.xd-overlay {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.xd-show.xd-effect-19~.xd-overlay {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.xd-effect-19~.xd-container,
+.xd-effect-19~.xd-overlay {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 100%;
+    -moz-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-animation: OpenTop2 0.5s backwards ease-out;
+    -moz-animation: OpenTop2 0.5s backwards ease-out;
+    animation: OpenTop2 0.5s backwards ease-out;
+}
+
+.xd-show.xd-effect-19~.xd-container,
+.xd-show.xd-effect-19~.xd-overlay {
+    -webkit-animation: OpenTop 0.5s forwards ease-in;
+    -moz-animation: OpenTop 0.5s forwards ease-in;
+    animation: OpenTop 0.5s forwards ease-in;
+}
+
+.xd-effect-19 .xd-content {
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    transform: translateY(-200%);
+    opacity: 0;
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s;
+}
+
+.xd-show.xd-effect-19 .xd-content {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s;
+}
+
+@-webkit-keyframes OpenTop {
+    50% {
+        -webkit-transform: rotateX(10deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+}
+
+@-moz-keyframes OpenTop {
+    50% {
+        -moz-transform: rotateX(10deg);
+        -moz-animation-timing-function: ease-out;
+    }
+}
+
+@keyframes OpenTop {
+    50% {
+        transform: rotateX(10deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+@-webkit-keyframes OpenTop2 {
+    0% {
+        -webkit-animation-timing-function: ease-in;
+    }
+    50% {
+        -webkit-transform: rotateX(10deg);
+    }
+}
+
+@-moz-keyframes OpenTop2 {
+    0% {
+        -moz-animation-timing-function: ease-in;
+    }
+    50% {
+        -moz-transform: rotateX(10deg);
+        -moz-animation-timing-function: ease-out;
+    }
+}
+
+@keyframes OpenTop2 {
+    0% {
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: rotateX(10deg);
+        animation-timing-function: ease-out;
+    }
+}
+
+@media screen and (max-width: 32em) {
+    body,
+    button {
+        font-size: 75%;
+    }
+}
+
+
+/*
+ * loading animation
+ * SEE: http://tobiasahlin.com/spinkit/
+ */
+
+.sk-fading-circle {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.sk-fading-circle .sk-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sk-fading-circle .sk-circle:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    height: 15%;
+    background-color: #FFF;
+    border-radius: 100%;
+    -webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+    animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+}
+
+.sk-fading-circle .sk-circle2 {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.sk-fading-circle .sk-circle3 {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+
+.sk-fading-circle .sk-circle4 {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.sk-fading-circle .sk-circle5 {
+    -webkit-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+
+.sk-fading-circle .sk-circle6 {
+    -webkit-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+
+.sk-fading-circle .sk-circle7 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.sk-fading-circle .sk-circle8 {
+    -webkit-transform: rotate(210deg);
+    -ms-transform: rotate(210deg);
+    transform: rotate(210deg);
+}
+
+.sk-fading-circle .sk-circle9 {
+    -webkit-transform: rotate(240deg);
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+
+.sk-fading-circle .sk-circle10 {
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+.sk-fading-circle .sk-circle11 {
+    -webkit-transform: rotate(300deg);
+    -ms-transform: rotate(300deg);
+    transform: rotate(300deg);
+}
+
+.sk-fading-circle .sk-circle12 {
+    -webkit-transform: rotate(330deg);
+    -ms-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
+
+.sk-fading-circle .sk-circle2:before {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.sk-fading-circle .sk-circle3:before {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+
+.sk-fading-circle .sk-circle4:before {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.sk-fading-circle .sk-circle5:before {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.sk-fading-circle .sk-circle6:before {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+.sk-fading-circle .sk-circle7:before {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+.sk-fading-circle .sk-circle8:before {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.sk-fading-circle .sk-circle9:before {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+
+.sk-fading-circle .sk-circle10:before {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+
+.sk-fading-circle .sk-circle11:before {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+
+.sk-fading-circle .sk-circle12:before {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+
+@-webkit-keyframes sk-circleFadeDelay {
+    0%,
+    39%,
+    100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+@keyframes sk-circleFadeDelay {
+    0%,
+    39%,
+    100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+.xd-debug-info {
+    padding-left: 1rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: white;
+}

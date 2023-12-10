@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<title>協力型推理ゲーム</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="./libs/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="./libs/bootstrap/carousel.css">
+	<link rel="stylesheet" href="./libs/xdialog/xdialog.css">
+	<link rel="stylesheet" href="./css/custom.css">
+</head>
+<body>
+	
+	<!-- Header(Start) -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img src="./images/logo.png">協力型推理ゲーム v0.90
+				</a>
+				<div class="text-light" id="mission_num">ミッション番号:xxxx</div>
+			</div>
+		</nav>
+	</header>
+	<!-- Header(End) -->
+
+	<!-- Main(Start) -->
+	<main>
+		<div class="container pt-3 px-4">
+			<div class="row mb-1">
+				<div class="col">
+					<p>
+						このミッションには全体で、<br/>
+						<table>
+							<tr>
+								<td>
+									<img class="bombs_icon" src="./images/bomb_black.png"/>
+									黒色の爆弾が<strong class="bombs_num" id="info_bomb_black">x</strong>個、
+								</td>
+								<td>
+									<img class="bombs_icon" src="./images/bomb_red.png"/>
+									赤色の爆弾が<strong class="bombs_num" id="info_bomb_red">x</strong>個、
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img class="bombs_icon" src="./images/bomb_green.png"/>緑色の爆弾が
+									<strong class="bombs_num" id="info_bomb_green">x</strong>個、
+								</td>
+								<td>
+									<img class="bombs_icon" src="./images/bomb_blue.png"/>青色の爆弾が
+									<strong class="bombs_num" id="info_bomb_blue">x</strong>個
+								</td>
+							</tr>
+						</table>
+						あります。
+					</p>
+				</div>
+			</div>
+			<hr class="col-12 mb-3">
+			<div class="row mb-3">
+				<div class="col text-center" id="my-canvas"></div>
+			</div>
+			<div class="row mb-3">
+				<div class="col text-center">
+					<a href="#" class="btn btn-info btn-md px-2 w-100" id="btn-reset">リセット</a>
+				</div>
+				<div class="col text-center">
+					<a href="#" class="btn btn-warning btn-md px-2 w-100" id="btn-answer">答えを見る</a>
+				</div>
+				<div class="col text-center">
+					<a href="#" class="btn btn-primary btn-md px-2 w-100" id="btn-search">検索する</a>
+				</div>
+			</div>
+			<div class="row mb-1">
+				<div class="col">
+					<h4>TODO:</h4>
+					<ul>
+						<li>o 全画面p5js(キャンバス)中止!!</li>
+						<li>o レイアウトをBootstrap5(レスポンシブ)に</li>
+						<li>o レーダー部分はp5js(キャンバス)に</li>
+						<li>o レーダー部分の横幅を最大640pxに</li>
+						<li>o 検索ダイアログ閉じるタイミングでクリア</li>
+						<li>o ダイアログ背景を気持ち半透明に</li>
+						<li>o 1~6, A~F表記をキャンバスに表示</li>
+						<li>o 爆弾アイコン等適用</li>
+						<li>o 解説用の文章適用</li>
+						<li>o レーダー部分キャンバス横幅最大640px</li>
+						<li>o それ以下(640px)の場合は90%幅に</li>
+						<li>o 数値、アルファベット表記入れ替え</li>
+						<li>o タッチイベントのバグ修正</li>
+						<li>o 手持ち端末での表示確認済</li>
+						<li>o ミッション番号は乱数で良い?</li>
+						<li>- 爆弾の色はこのままで良い?(黒、赤、緑、青)</li>
+						<li>- 配色など修正</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Main(End) -->
+
+	<!-- Footer(Start) -->
+	<footer>
+		<div class="container text-muted py-2">
+			<p class="float-end mb-1"><a href="#">Back to top</a></p>
+			<p class="mb-1">&copy; AIlabo遊 All rights reserved.</p>
+		</div>
+	</footer>
+	<!-- Footer(End) -->
+
+	<!-- Framework -->
+	<script src="./libs/jquery/jquery-3.6.1.min.js"></script>
+	<script src="./libs/bootstrap/bootstrap.min.js"></script>
+	<script src="./libs/p5js/p5.min.js"></script>
+	<script src="./libs/p5js/addons/p5.dom.min.js"></script>
+	<script src="./libs/p5js/addons/p5.sound.min.js"></script>
+	<script src="./libs/p5js/addons/p5.play.js"></script>
+	<script src="./libs/xdialog/xdialog.js"></script>
+	<!-- Sketch -->
+	<script src="./js/qlist.js"></script>
+	<script src="./js/utility.js"></script>
+	<script src="./js/sketch.js"></script>
+</body>
+</html>
