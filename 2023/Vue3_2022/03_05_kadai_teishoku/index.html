@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<!-- メイン -->
+		<div id="l-logo">
+			<img src="./images/main_lunch_01.png"/>
+		</div>
+		<!-- 日替わり -->
+		<div id="l-main">
+			日替わり:{{ mainMenu }}
+		</div>
+		<div>
+			<img id="l-main-photo" v-bind:src="mainImg"/>
+		</div>
+		<div id="l-main-price">
+			{{ mainPrice }}円
+		</div>
+		<!-- A定食/B定食 -->
+		<div class="f-container">
+			<div class="f-item">
+				<div id="l-sub">
+					A定食:***定食
+				</div>
+				<div>
+					<img id="l-sub-photo" src="./images/food_tama.png"/>
+				</div>
+				<div id="l-sub-price">
+					***円
+				</div>
+			</div>
+			<div class="f-item">
+				<div id="l-sub">
+					B定食:***定食
+				</div>
+				<div>
+					<img id="l-sub-photo" src="./images/food_ebi.png"/>
+				</div>
+				<div id="l-sub-price">
+					***円
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

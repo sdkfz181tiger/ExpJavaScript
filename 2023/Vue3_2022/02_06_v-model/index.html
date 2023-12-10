@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<h1>干支判定システム</h1>
+		<h2>西暦を入力してください</h2>
+		<div id="l-form">
+			<div>西暦<input v-model="dYear"/>年</div>
+			<div><button v-on:click="calc"/>判定</button></div>
+		</div>
+		<div id="l-name">この年は{{ dName }}年です!!</div>
+		<div id="l-img"><img v-bind:src="dImage"></div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

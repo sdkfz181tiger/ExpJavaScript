@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<div id="l-logo">
+			<img src="./images/main_safety_logo.png">
+		</div>
+		<div id="l-goal">
+			<div id="f-small">目標時間</div>
+			<div id="f-large">{{ msgGoal }}</div>
+			<div id="f-small">時間</div>
+		</div>
+		<div id="l-today">
+			<div id="f-small">現在</div>
+			<div id="f-time">{{ msgMonth }}</div>
+			<div id="f-small">月</div>
+			<div id="f-time">{{ msgDate }}</div>
+			<div id="f-small">日</div>
+			<div id="f-time">{{ msgHours }}</div>
+			<div id="f-small">時</div>
+			<div id="f-time">{{ msgMinutes }}</div>
+			<div id="f-small">分</div>
+		</div>
+		<div id="l-factory">
+			<div id="f-small">{{ fNameA }}</div>
+			<div id="f-middle">{{ fHoursA }}</div>
+			<div id="f-small">時間</div>
+		</div>
+		<div id="l-factory">
+			<div id="f-small">{{ fNameB }}</div>
+			<div id="f-middle">{{ fHoursB }}</div>
+			<div id="f-small">時間</div>
+		</div>
+		<div id="l-footer">
+			<img src="./images/main_safety_footer.png">
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

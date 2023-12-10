@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- PWA for iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="orange">
+	<meta name="apple-mobile-web-app-title" content="ぴよアプリ">
+	<link rel="apple-touch-icon" href="./pwa/icon152x152.png">
+	<!-- PWA for Android -->
+	<link rel="manifest" href="./pwa/manifest.json">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="./pwa/favicon.ico">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+	<title>ぴよアプリ</title>
+</head>
+<body>
+	<div id="app">
+		<h1>1/10の確率で有り金全部持っていくヒヨコ</h1>
+		<div id="l-piyo">
+			<img v-bind:src="imgPiyo">
+		</div>
+		<div id="l-msg">
+			{{ msgPiyo }}
+		</div>
+		<div id="l-coin">
+			<img v-bind:src="imgCoin">
+		</div>
+		<div id="l-btns">
+			<button v-on:click="getCoin"/>げっと!!</button>
+		</div>
+		<div id="l-total">
+			あなたの有り金:{{ total }}円
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.js"></script>
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

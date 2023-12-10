@@ -1,0 +1,78 @@
+/* CSS */
+
+html, body, #app{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+}
+
+body{
+	font-feature-settings: "palt";
+	font-family: "M PLUS 1p"; line-height: 1.2;
+	text-align: center; background: peachpuff;
+	display: flex; justify-content: center; align-items: center;
+}
+
+#app{
+	max-width: 430px; max-height: 760px;
+	background-image: url("./images/main_timesale_background.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#l-clock{
+	width: auto; height: auto;
+	margin: 0px auto 0px auto;
+}
+
+#l-clock img{
+	width: 100%;
+}
+
+#l-logo{
+	width: auto; height: auto;
+	margin: 20px auto 0px auto;
+}
+
+#l-logo img{
+	width: 100%;
+}
+
+#l-ribbon{
+	width: auto; height: 34px;
+	margin: 20px auto 10px auto;
+	padding: 10px 0px 0px 0px;
+	background-image: url("./images/main_timesale_ribbon.png");
+	background-repeat: no-repeat;
+	background-position: 50% 0px;
+}
+
+#l-footer{
+	width: auto; height: auto;
+	margin: 10px auto 0px auto;
+}
+
+#l-footer img{
+	width: 70%;
+}
+
+#l-time{
+	width: auto; height: auto;
+	margin: 20px auto 0px auto;
+	padding: 10px 0px 10px 0px;
+	display: flex; justify-content: center;
+	background: orange;
+}
+
+#f-small{
+	margin: auto 0px auto 0px;
+	font-size: 1.0em; font-weight: bold;
+}
+
+#f-time{
+	margin: auto 5px auto 5px; 
+	padding: 5px 5px;
+	color: white;
+	font-size: 1.8em;
+	background: black;
+	border-radius: 10px;
+}

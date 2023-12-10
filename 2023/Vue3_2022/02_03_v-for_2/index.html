@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<div id="l-title">
+			* Information *
+		</div>
+		<div id="l-today">
+			{{ msgToday }}
+		</div>
+		<div id="l-label">
+			午前の部
+		</div>
+		<div id="l-infos">
+			<ul v-for="info in infosA">
+				<li>{{ info }}</li>
+			</ul>
+		</div>
+		<div id="l-label">
+			午後の部
+		</div>
+		<div id="l-infos">
+			<ul v-for="info in infosB">
+				<li>{{ info }}</li>
+			</ul>
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

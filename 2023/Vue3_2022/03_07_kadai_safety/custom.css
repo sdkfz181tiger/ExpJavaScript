@@ -1,0 +1,82 @@
+/* CSS */
+
+html, body, #app{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+}
+
+body{
+	font-feature-settings: "palt";
+	font-family: "M PLUS 1p"; line-height: 1.2;
+	text-align: center; background: peachpuff;
+	display: flex; justify-content: center; align-items: center;
+}
+
+#app{
+	max-width: 430px; max-height: 760px;
+	background-image: url("./images/main_safety_background.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#l-logo img{
+	width: 100%;
+}
+
+#l-goal{
+	width: auto; height: auto;
+	margin: 40px auto 0px auto;
+	display: flex; justify-content: center;
+}
+
+#l-today{
+	width: auto; height: auto;
+	margin: 20px auto 0px auto;
+	display: flex; justify-content: center;
+}
+
+#l-factory{
+	width: auto; height: auto;
+	margin: 30px auto 0px auto;
+	display: flex; justify-content: center;
+}
+
+#l-footer{
+	width: auto; height: auto;
+	margin: 40px auto 0px auto;
+	display: flex; justify-content: center;
+}
+
+#l-footer img{
+	width: 100%;
+}
+
+#f-small{
+	margin: auto 5px auto 5px; padding: 0px;
+	color: black;
+	font-size: 1.2em; font-weight: bold;
+}
+
+#f-middle{
+	margin: auto 5px auto 5px; padding: 0px 10px;
+	color: white;
+	font-size: 3.0em;
+	background: black;
+	border-radius: 10px;
+}
+
+#f-large{
+	margin: auto 5px auto 5px; padding: 0px 10px;
+	color: white;
+	font-size: 5em;
+	background: black;
+	border-radius: 10px;
+}
+
+#f-time{
+	margin: auto 5px auto 5px; padding: 5px 5px;
+	color: white;
+	font-size: 2.0em;
+	background: black;
+	border-radius: 10px;
+}

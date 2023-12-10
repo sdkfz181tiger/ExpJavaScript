@@ -1,0 +1,51 @@
+
+Create project
+
+//==========
+// Vue CLI
+	sudo npm install -g @vue/cli
+
+	Create Project
+		cd your_project_dir
+		vue create hello_app
+		cd hello_app
+
+	Run with server
+		npm run serve
+
+	Build project
+		npm run build 
+
+//==========
+// Vue Vite
+	
+	Create Project
+		cd your_project_dir
+		npm init vite-app hello_vite
+		cd hello_vite
+
+	Install
+		npm install
+
+	Run
+		npm run dev
+
+	Build
+		npm run build
+
+//==========
+// Sublime: Syntax Highlight
+
+	Tools > Command Palette
+
+		Package Control: Add Repository
+
+	URL:
+		https://github.com/vuejs/vue-syntax-highlight.git
+
+	Tools > Command Palette
+		Package Control: Install Package
+
+	Select:
+		Vue Syntax Highlight
+

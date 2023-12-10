@@ -1,0 +1,72 @@
+/* CSS */
+
+html, body, #app{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+}
+
+body{
+	font-feature-settings: "palt";
+	font-family: "M PLUS 1p"; line-height: 1.5;
+	text-align: center; background: darkseagreen; color: white;
+	display: flex; justify-content: center; align-items: center;
+}
+
+#app{
+	max-width: 430px; max-height: 760px;
+	background-image: url("./images/main_corona_background.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#l-msg1{
+	width: auto; height: auto;
+	margin: 60px auto 0px auto;
+	padding: 0px 0px 0px 0px;
+	display: flex; justify-content: center;
+	font-size: 1.6em; font-weight: normal; 
+	white-space: pre-wrap;
+	/*background: orange;*/
+}
+
+#l-msg2{
+	width: auto; height: auto;
+	margin: 20px auto 0px auto;
+	padding: 0px 0px 0px 0px;
+	display: flex; justify-content: center;
+	font-size: 3.6em; font-weight: bold; line-height: 1.2;
+	white-space: pre-wrap;
+	/*background: orange;*/
+}
+
+#l-key{
+	width: auto; height: auto;
+	margin: 20px auto 0px auto;
+	padding: 0px 0px 0px 0px;
+	display: flex; justify-content: center;
+	/*background: orange;*/
+}
+
+#l-key img{
+	width: 100%;
+}
+
+#l-msg3{
+	width: auto; height: auto;
+	margin: 10px auto 0px auto;
+	padding: 0px 0px 0px 0px;
+	display: flex; justify-content: center;
+	font-size: 2.4em; font-weight: normal; color: yellow;
+	white-space: pre-wrap;
+	/*background: orange;*/
+}
+
+#l-msg4{
+	width: auto; height: auto;
+	margin: 20px auto 0px auto;
+	padding: 0px 0px 0px 0px;
+	display: flex; justify-content: center;
+	font-size: 1.2em; font-weight: normal;
+	white-space: pre-wrap;
+	/*background: orange;*/
+}

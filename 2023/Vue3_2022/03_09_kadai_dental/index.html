@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<div id="l-logo">
+			<img src="./images/main_logo.png">
+		</div>
+		<div id="l-clinic">
+			{{ msgClinic }}
+		</div>
+		<div id="l-label">
+			診療科目
+		</div>
+		<div id="l-type">
+			{{ msgType }}
+		</div>
+		<table id="l-table">
+			<tr>
+				<td v-for="val of dow">{{ val }}</td>
+			</tr>
+			<tr>
+				<td v-for="val of daysA">{{ val }}</td>
+			</tr>
+			<tr>
+				<td v-for="val of daysB">{{ val }}</td>
+			</tr>
+		</table>
+		<div id="l-tel">
+			{{ msgTel }}
+		</div>
+		<div id="l-footer">
+			{{ msgFooter }}
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

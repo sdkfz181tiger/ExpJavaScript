@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<div id="l-clock">
+			<img src="./images/main_timesale_clock.png">
+		</div>
+		<div id="l-logo">
+			<img src="./images/main_timesale_logo.png">
+		</div>
+		<div id="l-ribbon">
+			<div id="f-small">{{ msgInfo }}</div>
+		</div>
+		<div id="l-footer">
+			<img src="./images/main_timesale_footer.png">
+		</div>
+		<div id="l-time">
+			<div id="f-small">セールまで</div>
+			<div id="f-time">{{ msgHours }}</div>
+			<div id="f-small">時間</div>
+			<div id="f-time">{{ msgMinutes }}</div>
+			<div id="f-small">分です!!</div>
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>

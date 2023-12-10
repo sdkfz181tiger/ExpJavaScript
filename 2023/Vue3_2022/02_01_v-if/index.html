@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=M+PLUS+1p">
+	<link rel="stylesheet" href="./custom.css">
+</head>
+<body>
+	<div id="app">
+		<div id="l-logo">
+			<img src="./images/main_board_logo.png">
+		</div>
+		<!-- モーニング/ランチタイム/ディナータイム -->
+		<div id="l-main" v-if="numHours < 12">
+			モーニング
+		</div>
+		<div id="l-main" v-else-if="11 <= numHours && numHours < 15">
+			ランチタイム
+		</div>
+		<div id="l-main" v-else>
+			ディナータイム
+		</div>
+		<!-- 時間帯 -->
+		<div id="l-time">
+			**:** ~ **:**
+		</div>
+		<!-- メニュー -->
+		<div id="l-menu">
+			<div>XXXトースト</div>
+			<div>YYYトースト</div>
+			<div>ZZZトースト</div>
+		</div>
+		<div id="l-foot">
+			<img src="./images/main_board_footer.png">
+		</div>
+	</div>
+	<!-- JavaScript -->
+	<script src="//unpkg.com/vue@next"></script>
+	<script src="./main.js"></script>
+</body>
+</html>
