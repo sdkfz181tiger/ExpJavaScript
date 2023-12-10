@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Hello Three.js</title>
+	<style>
+	body{
+		margin: 0px; overflow: hidden;
+		background-color: #333333;
+	}
+	button{
+		width: auto; height: auto;
+		margin: 2px; padding: 5px;
+		font-size: 0.5em;
+	}
+	#area{
+		width: 480px; height: 320px;
+		margin: 0px; padding: 0px;
+		position: absolute;
+	}
+	#stage{
+		width: 480px; height: 320px;
+		margin: 0px; padding: 0px;
+		position: absolute;
+	}
+	#ui{
+		width: auto; height: auto;
+		bottom: 0px; right: 0px;
+		position: absolute;
+	}
+	</style>
+</head>
+<body>
+	<div id="area">
+		<div id="stage"></div>
+		<div id="ui">
+			<button class="btnStates" index=0>Btn</button>
+			<br/>
+			<button class="btnStates" index=1>Btn</button>
+			<button class="btnStates" index=2>Btn</button>
+			<button class="btnStates" index=3>Btn</button>
+			<button class="btnStates" index=4>Btn</button>
+			<button class="btnStates" index=5>Btn</button>
+			<button class="btnStates" index=6>Btn</button>
+			<br/>
+			<button class="btnEmotes" index=0>Btn</button>
+			<button class="btnEmotes" index=1>Btn</button>
+			<button class="btnEmotes" index=2>Btn</button>
+			<button class="btnEmotes" index=3>Btn</button>
+			<button class="btnEmotes" index=4>Btn</button>
+			<button class="btnEmotes" index=5>Btn</button>
+		</div>
+	</div>
+
+	<!-- Three.js -->
+	<script src="./libs/three-js/three.min.js" defer></script>
+	<script src="./libs/utilities/libs/stats.min.js" defer></script>
+	<script src="./libs/utilities/controls/TrackballControls.js" defer></script>
+	<script src="./libs/utilities/renderers/Projector.js" defer></script>
+	<script src="./libs/utilities/loaders/GLTFLoader.js" defer></script>
+	<script src="./libs/utilities/loaders/VRMLoader.js" defer></script>
+	<script src="./libs/utilities/WebGL.js" defer></script>
+	<script src="./libs/tween-js/Tween.js" defer></script>
+	<!-- jQuery -->
+	<script src="./libs/jquery/jquery.min.js" defer></script>
+	<script src="./js/utility.js" defer defer></script>
+	<script src="./js/app.js" defer></script>
+	<audio muted></audio>
+</body>
+</html>
