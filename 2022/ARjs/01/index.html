@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<title>AR.js</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="./css/custom.css">
+</head>
+<body style="margin : 0px; overflow: hidden;">
+	<h1>AR.js</h1>
+		
+  <!-- A-Frame ライブラリの読み込み -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <!-- AR.js ライブラリの読み込み -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <!-- AR領域 --> 
+    <!-- ① -->
+    <a-scene embedded arjs>
+      <!-- カメラのエンティティ -->
+      <a-entity camera></a-entity>
+
+      <!-- マーカー定義 -->
+      <a-marker type="pattern" url="pattern-example.patt"> 
+          <!-- ② -->
+          <!-- マーカーの位置に下記の立方体が表示される -->
+          <a-box
+              position="0 0.5 0"
+              rotation="0 0 0"
+              scale="1 1 1"
+              color="red"></a-box>
+      </a-marker>
+    </a-scene>
+
+	<!-- JavaScript -->
+	<script src="//code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script src="./main.js"></script>
+</body>
+</html>
