@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="shortcut icon" href="./images/favicon.ico">
+	<title>Popper</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="./css/custom.css">
+</head>
+<body>
+
+	<h1>Hello, Popper</h1>
+
+	<p>
+		<button id="btn_a" aria-describedby="tooltip">BtnA</button>
+		<div id="tooltip_a" role="tooltip">
+			PopA
+			<div id="arrow" data-popper-arrow></div>
+		</div>
+	</p>
+
+	<!-- JavaScript -->
+	<script src="//unpkg.com/@popperjs/core@2"></script>
+	<script src="./main.js"></script>
+</body>
+</html>
