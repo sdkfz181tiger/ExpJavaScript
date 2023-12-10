@@ -1,0 +1,29 @@
+/* CSS */
+
+body{
+	margin: 0px; padding: 0px;
+	background-color: silver;
+}
+
+.mybook{
+	display: inline-block;
+}
+
+#outer{
+	width: 100%; height: 100%;
+	/*background-color: purple;*/
+}
+
+#inner{
+	width: 100%; height: auto;
+	display: inline-block;
+	/*background-color: pink;*/
+}
+
+.b-link{
+	width: 100px; height: auto;
+	position: absolute;
+	left: 70px; bottom: 60px;
+	background-color: orange;
+	text-align: center;
+}
