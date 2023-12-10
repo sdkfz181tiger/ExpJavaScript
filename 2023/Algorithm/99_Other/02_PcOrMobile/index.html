@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<!-- JavaScript -->
+	<script>
+		// Redirect
+		window.onload = (e)=>{
+			if(isMobile()){
+				console.log("Mobile!!");// モバイル向けサイトへ
+				window.location.href = "./website_mobile/index.html";
+			}else{
+				console.log("PC!!");// PC向けサイトへ
+				window.location.href = "./website_pc/index.html";
+			}
+		}
+
+		function isMobile(){
+			if (!window.matchMedia) return false;
+			if (!window.matchMedia("(max-device-width: 640px)").matches) return false;
+			return true;
+		}
+	</script>
+</head>
+<body>
+	判定中です...
+</body>
+</html>
