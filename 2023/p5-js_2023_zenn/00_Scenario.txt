@@ -1,0 +1,47 @@
+
+= シナリオ =
+
+JavaScriptで和柄を作ろう(仮)
+
+	background,
+	circle, rect,
+	x, y, random
+	fill, noFill, stroke, noStroke
+	width, height
+
+	0, 円, 四角
+		自由に配置
+			x, y, width, height
+		色
+			fill, stroke
+		中央に配置する
+			width, height
+		重ねる
+			for
+		並べる_(横, 縦, 斜め)
+			for, width, height
+		ランダム, 配色
+			random
+
+	1, 縦縞, 横縞
+		for
+
+	2, 水玉
+		for, mod
+
+	3, 市松
+		for, mod
+
+	4, 青海波
+		for, mod
+
+	5, 三木崩し
+
+	6, 鱗
+		function, triangle
+
+	7, 麻の葉
+		function, sin, cos
+
+	8, 亀甲
+		function, sin, cos
