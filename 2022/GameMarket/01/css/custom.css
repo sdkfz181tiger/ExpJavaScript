@@ -1,0 +1,61 @@
+/* CSS */
+
+html, body{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+	background-color: floralwhite;
+	font-weight: bold;
+}
+
+#container{
+	width: auto; height: auto;
+	margin: 0rem; padding: 2rem;
+	background-color: whitesmoke;
+}
+
+#wrapper{
+	width: auto; height: 700px;
+	overflow-y: scroll;
+}
+
+#total{
+	width: auto; height: auto;
+	margin: 1rem; padding: 0rem;
+	position: absolute;
+	top: 0px; right: 0px;
+}
+
+#save{
+	position: absolute;
+	top: 0px; left: 0px;
+}
+
+h1{
+	width: 95%; height: auto;
+	margin: auto; padding: 1rem;
+}
+
+table{
+	width: 100%; height: auto;
+	margin: auto; padding: 0rem;
+	background-color: gray;
+}
+
+th{
+	color: white;
+}
+
+td{
+	margin: 1px; padding: 10px;
+	text-align: center;
+	background-color: floralwhite;
+}
+
+img{
+	width: 60px; height: auto;
+}
+
+button{
+	width: 80px; height: 80px;
+	font-size: 2rem;
+}
