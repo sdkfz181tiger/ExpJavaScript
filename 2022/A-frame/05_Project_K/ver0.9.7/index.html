@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>body{margin: 0; padding: 0;}</style>
+	<!-- Framework -->
+	<script src="./libs/aframe/aframe-v1.2.0.min.js"></script>
+	<script src="./libs/plugins/aframe-environment-component.js"></script>
+	<script src="./libs/plugins/aframe-teleport-controls.js"></script>
+	<script src="./libs/plugins/play-on-click.js"></script>
+	<script src="./libs/plugins/hide-on-play.js"></script>
+	<!-- Analyser -->
+	<script src="./libs/analyser/aframe-audio-analyser.umd.js"></script>
+	<script src="./libs/analyser/aframe-entity-generator-component.min.js"></script>
+	<script src="./libs/analyser/aframe-layout-component.min.js"></script>
+	<script src="./libs/analyser/components/audioanalyser-levels-scale.js"></script>
+	<script src="./libs/analyser/components/scale-y-color.js"></script>
+	<!-- Main -->
+	<script src="./js/main.js"></script>
+</head>
+<body>
+	<a-scene root stats loading-screen="backgroundColor: silver; dotsColor: gray;">
+
+		<!-- Assets -->
+		<a-assets>
+			<!-- Audio -->
+			<audio id="a-red" src="./assets/sounds/red.mp3" loop></audio>
+			<audio id="a-green" src="./assets/sounds/green.mp3" loop></audio>
+			<audio id="a-blue" src="./assets/sounds/blue.mp3" loop></audio>
+			<!-- Videos -->
+			<video id="v-red" src="./assets/videos/red.mp4" type="video/mp4"
+				loop="true" preload="auto" video-loader></video>
+			<video id="v-green" src="./assets/videos/green.mp4" type="video/mp4"
+				loop="true" preload="auto" video-loader></video>
+			<video id="v-blue" src="./assets/videos/blue.mp4" type="video/mp4"
+				loop="true" preload="auto" video-loader></video>
+			<!-- Models -->
+			<a-asset-item id="m-red"   src="./assets/models/LightObj_R.gltf"></a-asset-item>
+			<a-asset-item id="m-green" src="./assets/models/LightObj_Y.gltf"></a-asset-item>
+			<a-asset-item id="m-blue"  src="./assets/models/blue.gltf"></a-asset-item>
+			<a-asset-item id="m-piano" src="./assets/models/piano.glb"></a-asset-item>
+			<!-- Analyser -->
+			<a-mixin id="bar-red" geometry="primitive: box" material="color: black"
+					scale-y-color="from: 10 10 10; to: 255 33 33; maxScale: 30"></a-mixin>
+			<a-mixin id="bar-green" geometry="primitive: box" material="color: black"
+					scale-y-color="from: 10 10 10; to: 33 255 255; maxScale: 30"></a-mixin>
+			<a-mixin id="bar-blue" geometry="primitive: box" material="color: black"
+					scale-y-color="from: 10 10 10; to: 33 33 255; maxScale: 30"></a-mixin>
+		</a-assets>
+
+		<!-- Teleport -->
+		<a-entity id="camera-rig" position="0 1.4 0">
+			<a-entity id="head" camera wasd-controls look-controls position="0 0.1 0">
+				<a-text id="my-text" position="0 0 -4" scale="0.1 0.1 0.1"
+						value="***" align="center" color="#FFFFFF"></a-text>
+			</a-entity>
+			<a-entity id="ctlL" laser-controls="hand: left" raycaster="objects: .collidable; far:1.2;"
+					teleport-controls="camera-rig: #camera-rig; teleportOrigin: #head; startEvents: teleportstart; endEvents: teleportend" input-listener></a-entity>
+			<a-entity id="ctlR" laser-controls="hand: right" raycaster="objects: .collidable; far:1.2;"
+					teleport-controls="camera-rig: #camera-rig; teleportOrigin: #head; startEvents: teleportstart; endEvents: teleportend" input-listener></a-entity>
+		</a-entity>
+
+		<!-- Rings -->
+		<a-ring id="ring" position="0 0.2 0" rotation="-90 0 0" wireframe="true"
+				radius-inner="1.5" radius-outer="2" color="#CCCCCC"></a-ring>
+		<a-ring id="circle-r" position="0 0.1 -10" rotation="-90 0 0"
+				radius-inner="1.5" radius-outer="2" color="#FF6666" wireframe="true"></a-ring>
+		<a-ring id="circle-g" position="-15 0.1 -5" rotation="-90 0 0"
+				radius-inner="1.5" radius-outer="2" color="#FFFF66" wireframe="true"></a-ring>
+		<a-ring id="circle-b" position="15 0.1 -5" rotation="-90 0 0"
+				radius-inner="1.5" radius-outer="2" color="#6666FF" wireframe="true"></a-ring>
+
+		<!-- 3D Objects -->
+		<a-entity id="model-r" gltf-model="#m-red"   position="0 4 -10" scale="0.5 0.5 0.5"
+					animation="property: rotation;
+						from: 0 0 0; to: 0 360 0;
+						dir: alternate; dur: 3000;
+						loop: true; easing: easeInOutSine"></a-entity>
+		<a-entity id="model-g" gltf-model="#m-green" position="-15 4 -5" scale="0.5 0.5 0.5"
+					animation="property: rotation;
+						from: 0 0 0; to: 0 360 0;
+						dir: alternate; dur: 3000;
+						loop: true; easing: easeInOutSine"></a-entity>
+		<a-entity id="model-b" gltf-model="#m-blue"  position="15 4 -5" scale="0.5 0.5 0.5"
+					animation="property: rotation;
+						from: 0 0 0; to: 0 360 0;
+						dir: alternate; dur: 3000;
+						loop: true; easing: easeInOutSine">
+		</a-entity>
+
+		<!-- Other Objects -->
+		<a-entity id="model-p" gltf-model="#m-piano"  position="15 0 -8" scale="0.5 0.5 0.5"></a-entity>
+
+		<!-- Audio -->
+		<a-sound id="audio-r" src="#a-red" 
+				position="0 1.2 -10" autoplay="false" loop="true"></a-sound>
+		<a-sound id="audio-g" src="#a-green" 
+				position="-15 1.2 -5" autoplay="false" loop="true"></a-sound>
+		<a-sound id="audio-b" src="#a-blue" 
+				position="15 1.2 -5" autoplay="false" loop="true"></a-sound>
+
+		<!-- VideoSphere -->
+		<a-videosphere id="v-sphere" src="#v-red" rotation="0 -90 0" video-loader></a-videosphere>
+
+		<!--Environment-->
+		<a-entity id="env" environment="preset: checkerboard; dressingAmount: 30;"></a-entity>
+
+		<!--Audio Analyser-->
+		<a-entity id="ana-red"
+			visible="true" position="0 -0.1 -10"
+			audioanalyser="src: #a-red; smoothingTimeConstant: 0.9"
+			audioanalyser-levels-scale="max: 50; multiplier: 0.06"
+			entity-generator="mixin: bar-red; num: 64"
+			layout="type: circle; radius: 25; plane: xz;"></a-entity>
+
+		<a-entity id="ana-green"
+			visible="true" position="-15 -0.1 -5"
+			audioanalyser="src: #a-green; smoothingTimeConstant: 0.9"
+			audioanalyser-levels-scale="max: 50; multiplier: 0.06"
+			entity-generator="mixin: bar-green; num: 64"
+			layout="type: circle; radius: 25; plane: xz;"></a-entity>
+
+		<a-entity id="ana-blue"
+			visible="true" position="15 -0.1 -5"
+			audioanalyser="src: #a-blue; smoothingTimeConstant: 0.9"
+			audioanalyser-levels-scale="max: 50; multiplier: 0.06"
+			entity-generator="mixin: bar-blue; num: 64"
+			layout="type: circle; radius: 25; plane: xz;"></a-entity>
+
+		<a-light id="ana-stg-ambient" visible="false" type="ambient" color="#222"></a-light>
+		<a-light id="ana-stg-point" visible="false" type="point" position="0 1 0" intensity="2"></a-light>
+		<a-circle id="ana-stg-floor" visible="false" color="#333" opacity="0.8" rotation="-90 0 0" radius="40" roughness="1"></a-circle>
+		
+	</a-scene>
+</body>
+</html>

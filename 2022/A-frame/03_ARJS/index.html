@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+    <head>
+    	<meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    
+    <body style='margin : 0px; overflow: hidden;'>
+        <a-scene
+                 embedded
+                 arjs="debugUIEnabled: false"
+                 device-orientation-permission-ui="enabled: false"
+                 vr-mode-ui="enabled: false">
+          
+          <a-assets>
+            <a-asset-item id="fox-mtl" src="./models/chickin.mtl"></a-asset-item>
+            <a-asset-item id="fox-obj" src="./models/chickin.obj"></a-asset-item>
+          </a-assets>
+          
+          <a-marker preset="hiro">
+            <!-- <a-box></a-box> -->
+            <a-obj-model position="0 0 0" scale="0.1 0.1 0.1" src="#fox-obj" mtl="#fox-mtl"></a-obj-model>
+          </a-marker>
+          
+          <a-entity camera></a-entity>
+      </a-scene>
+    </body>
+</html>
