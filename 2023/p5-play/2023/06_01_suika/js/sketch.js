@@ -1,5 +1,6 @@
 
-const BALL_TYPE = [
+// フルーツの種類
+const FRUITS_TYPE = [
 		{"radius": 10, "color":"orange"},
 		{"radius": 20, "color":"yellow"},
 		{"radius": 30, "color":"green"},
@@ -15,7 +16,7 @@ const WALL_W = 24;
 let cvs;// キャンバス
 
 let wallGroup;// 壁グループ
-let ballGroup;// ボールグループ
+let fruitsGroup;// フルーツグループ
 
 let next = null;// 次のボール
 
@@ -26,20 +27,24 @@ function setup(){
 	world.gravity.y = 18;// 重力
 	frameRate(60);// フレームレート
 
-	ballGroup = new Group();// ボールグループ
 	wallGroup = new Group();// 壁グループ
+	fruitsGroup = new Group();// フルーツグループ
 
+	// 壁を作る
 	createWalls();
+
+	// 次のフルーツ
 	next = createNext(width/2, 30);
 
-	ballGroup.collides(ballGroup, (a, b)=>{
+	// フルーツグループ同士の衝突
+	fruitsGroup.collides(fruitsGroup, (a, b)=>{
 		if(a.index != b.index) return;
-		if(BALL_TYPE.length-1 < a.index) return;
+		if(FRUITS_TYPE.length-1 < a.index) return;
 		a.life = 1;
 		b.life = 1;
 		const x = (a.x + b.x) / 2;
 		const y = (a.y + b.y) / 2;
-		createBall(x, y, a.index+1);
+		createFruits(x, y, a.index+1);
 	});
 }
 
@@ -96,15 +101,15 @@ function createWalls(){
 
 function createNext(x, y){
 	const index = floor(random() * 2);
-	return createBall(x, y, index);
+	return createFruits(x, y, index);
 }
 
-function createBall(x, y, index){
-	const type = BALL_TYPE[index];
-	const ball = new ballGroup.Sprite(x, y);
-	ball.index = index;
-	ball.radius = type.radius;
-	ball.color = type.color;
-	ball.collider = "dynamic";
-	return ball;
+function createFruits(x, y, index){
+	const type = FRUITS_TYPE[index];
+	const spr = new fruitsGroup.Sprite(x, y);
+	spr.index = index;
+	spr.radius = type.radius;
+	spr.color = type.color;
+	spr.collider = "dynamic";
+	return spr;
 }
