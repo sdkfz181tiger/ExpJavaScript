@@ -1,4 +1,3 @@
-
 // フルーツの種類
 const FRUITS_TYPE = [
 		{"radius": 10, "color":"orange"},
@@ -33,7 +32,7 @@ function setup(){
 	// 壁を作る
 	createWalls();
 
-	// 次のフルーツ
+	// 最初フルーツ
 	next = createNext(width/2, 30);
 
 	// フルーツグループ同士の衝突
@@ -51,6 +50,7 @@ function setup(){
 function draw(){
 	background("silver");// 背景色
 
+	// 次のフルーツ
 	if(next != null){
 		const minX = next.radius;
 		const maxX = width - next.radius;
@@ -65,17 +65,6 @@ function draw(){
 	}
 
 	renderStats();// ステータス
-}
-
-function mouseClicked() {
-	console.log("mouseClicked:", mouseX, mouseY);
-
-	if(next == null) return;
-	next = null;
-
-	setTimeout(()=>{
-		next = createNext(width/2, 30);// Next
-	}, 500);
 }
 
 function createWalls(){
@@ -97,6 +86,18 @@ function createWalls(){
 	wallR.height = height;
 	wallR.color = "gray";
 	wallR.collider = "static"
+}
+
+function mouseClicked() {
+	console.log("mouseClicked:", mouseX, mouseY);
+
+	// 次のフルーツを準備する
+	if(next == null) return;
+	next = null;
+
+	setTimeout(()=>{
+		next = createNext(width/2, 30);// Next
+	}, 500);
 }
 
 function createNext(x, y){
