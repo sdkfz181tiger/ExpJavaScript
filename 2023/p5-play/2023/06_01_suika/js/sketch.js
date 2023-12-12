@@ -1,4 +1,14 @@
 
+const BALL_TYPE = [
+		{"radius": 10, "color":"orange"},
+		{"radius": 20, "color":"yellow"},
+		{"radius": 30, "color":"green"},
+		{"radius": 40, "color":"blue"},
+		{"radius": 50, "color":"indigo"},
+		{"radius": 60, "color":"violet"},
+		{"radius": 70, "color":"red"}
+	]
+
 const START_LINE_Y = 30;
 const WALL_W = 24;
 
@@ -20,7 +30,17 @@ function setup(){
 	wallGroup = new Group();// 壁グループ
 
 	createWalls();
-	next = createBall(width/2, 30);
+	next = createNext(width/2, 30);
+
+	ballGroup.collides(ballGroup, (a, b)=>{
+		if(a.index != b.index) return;
+		if(BALL_TYPE.length-1 < a.index) return;
+		a.life = 1;
+		b.life = 1;
+		const x = (a.x + b.x) / 2;
+		const y = (a.y + b.y) / 2;
+		createBall(x, y, a.index+1);
+	});
 }
 
 function draw(){
@@ -49,7 +69,7 @@ function mouseClicked() {
 	next = null;
 
 	setTimeout(()=>{
-		next = createBall(width/2, 30);// Next
+		next = createNext(width/2, 30);// Next
 	}, 500);
 }
 
@@ -74,10 +94,17 @@ function createWalls(){
 	wallR.collider = "static"
 }
 
-function createBall(x, y){
+function createNext(x, y){
+	const index = floor(random() * 2);
+	return createBall(x, y, index);
+}
+
+function createBall(x, y, index){
+	const type = BALL_TYPE[index];
 	const ball = new ballGroup.Sprite(x, y);
-	ball.radius = random(8, 24);
-	ball.color = "white";
+	ball.index = index;
+	ball.radius = type.radius;
+	ball.color = type.color;
 	ball.collider = "dynamic";
 	return ball;
 }
