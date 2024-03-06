@@ -2,11 +2,11 @@ console.log("Hello, JavaScript!!");
 
 // ヒープソート
 
-const data = [91, 86, 72, 45, 69, 24, 55, 1, 12];
+const data = [91, 86, 72, 45, 69, 24, 55, 1, 12];// ヒープ構築済の配列
 for(let i=data.length-1; 0<i; i--){
 	swap(0, i);// TopとLastを入れ替える
 	heapSort(0, i-1);// Heapの再構築(Lastの位置を一つ減らす)
-	console.log("i[", i, "]:", data);
+	//console.log("i[", i, "]:", data);
 }
 console.log("Result:", data);
 
