@@ -1,0 +1,9 @@
+.Clock {
+  background: slateblue;
+  text-align: center;
+}
+
+.Clock-logo {
+  height: 40vmin;
+  pointer-events: none;
+}

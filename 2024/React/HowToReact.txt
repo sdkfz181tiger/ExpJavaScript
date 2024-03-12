@@ -1,0 +1,15 @@
+HowToReact
+
+1, Create Project
+	$ cd your-dir
+	$ npx create-react-app my-react
+
+2, Launch Project
+	$ cd my-react
+	$ npm start
+
+3, Install Babel on SublimeText(Syntax Highlight)
+	3-1, Command + Shift + P
+	3-2, Package Controll: Install Packages
+	3-3, Select "Babel"
+	3-4, View->Syntax->Open all with current extension as...->JavaScript(Babel)
