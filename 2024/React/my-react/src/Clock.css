@@ -1,9 +1,13 @@
 .Clock {
-  background: slateblue;
-  text-align: center;
+  width: 100%; height: 100%;
+  margin: 0px; padding: 0px;
+  background: skyblue; color: white;
+  position: absolute; display: flex;
+  justify-content: center; align-items: center;
 }
 
-.Clock-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Clock-View {
+  font-family: "San Francisco", Sans-Serif;
+  font-size: 1em; font-weight: bold;
+  text-align: center;
 }
