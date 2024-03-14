@@ -2,17 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import MyHello from "./samples/MyHello";
+import MyCounter from "./samples/MyCounter";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-setInterval(()=>{
-  root.render(
-    <React.StrictMode>
-      <MyHello myProps={{"greeting": "Good morning!!"}}/>
-    </React.StrictMode>
-  );
-}, 1000);
+root.render(
+  <React.StrictMode>
+    <MyCounter myProps={{"default": 0}}/>
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
