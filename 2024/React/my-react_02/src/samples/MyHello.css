@@ -20,8 +20,8 @@
 }
 
 .Disp-Clock {
+  width: auto; height: auto;
+  margin: 0px; padding: 0px;
   background: midnightblue; color: white;
-  font-family: "San Francisco", Sans-Serif;
   font-size: 1em; font-weight: bold;
-  text-align: center;
 }
