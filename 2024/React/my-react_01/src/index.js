@@ -2,14 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import MyHello from "./samples/MyHello";
-import MyCounter from "./samples/MyCounter";
+import MyForLoop from "./samples/MyForLoop";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+const arr = [
+  {"name": "Taro"},
+  {"name": "Jiro"},
+  {"name": "Saburo"}
+];
+
 root.render(
   <React.StrictMode>
-    <MyCounter myProps={{"default": 0}}/>
+    <MyForLoop myArr={arr}/>
   </React.StrictMode>
 );
 

@@ -4,11 +4,11 @@ import "./MyStyle.css";
 
 const MyCounter = ({myProps})=>{
   // Initialize
-  const [count, setCount] = useState(myProps.default);// State
-  const clickEvent = ()=> setCount(count + 1);// Click
+  const [counter, setCount] = useState(myProps.default);// State
+  const clickEvent = ()=>setCount(counter + 1);// Click
   return(
     <div className="Disp">
-      <div className="Disp-Greeting">Hello, {count}</div>
+      <div className="Disp-Greeting">Counter:{counter}</div>
       <img className="Disp-Logo" src={logo}/>
       <div className="Disp-Clock">{getClock()}</div>
       <button onClick={clickEvent}>Click</button>
