@@ -6,7 +6,7 @@ let cvs;// キャンバス
 let cX, cY;// 中心座標
 
 let player;
-let bulletGroup;
+let bltGroup;
 
 function setup(){
 
@@ -28,23 +28,23 @@ function setup(){
 	player.x = cX;
 	player.y = cY;
 
-	bulletGroup = new Group();// Group
+	bltGroup = new Group();// Group
 }
 
 function draw(){
-	background("silver");// 背景色
+	background("gray");// 背景色
 
 	// Keyboard
 	if(kb.pressing("left")){
-		player.rotation -= 2;
+		player.rotation -= 4;
 	}
 	if(kb.pressing("right")){
-		player.rotation += 2;
+		player.rotation += 4;
 	}
 	if(kb.pressing("up")){
 		const rot = player.rotation - 90;
-		player.velocity.x += cos(rot) * THRUSTER;
-		player.velocity.y += sin(rot) * THRUSTER;
+		player.vel.x += cos(rot) * THRUSTER;
+		player.vel.y += sin(rot) * THRUSTER;
 	}
 	if(kb.pressing("z")){
 		shot();
@@ -70,12 +70,13 @@ function shot(){
 	const rot = player.rotation - 90;
 	const x = player.x + player.radius * cos(rot) * 1.5;
 	const y = player.y + player.radius * sin(rot) * 1.5;
-	const bullet = new bulletGroup.Sprite(x, y);
-	bullet.radius = 4;
-	bullet.color = "blue";
-	bullet.collider = "dynamic";
-	bullet.velocity.x = cos(rot) * SPD_BULLET;
-	bullet.velocity.y = sin(rot) * SPD_BULLET;
+	const blt = new bltGroup.Sprite(x, y);
+	blt.radius = 4;
+	blt.color = "blue";
+	blt.collider = "dynamic";
+	blt.life = 60;
+	blt.vel.x = cos(rot) * SPD_BULLET;
+	blt.vel.y = sin(rot) * SPD_BULLET;
 }
 
 function createEnemy(x, y){
