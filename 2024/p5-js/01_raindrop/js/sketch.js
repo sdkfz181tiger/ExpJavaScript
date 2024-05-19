@@ -1,8 +1,8 @@
 "use strict"
 
-const COLORS = ["#2f6690", "#3a7ca5", "#d9dcd6", "#16425b", "#81c3d7"];
+const COLORS = ["#3a7ca5", "#d9dcd6", "#16425b", "#81c3d7"];
 const WHITE  = "#EEEEEE";
-const BLACK  = "#003554";
+const BLACK  = "#2f6690";
 
 const rds = [];
 
@@ -12,12 +12,18 @@ function setup(){
 	textAlign(CENTER, BOTTOM); textSize(10);
 	frameRate(32);
 
-	for(let i=0; i<100; i++){
-		const x = random(width);
-		const y = random(height);
-		const size = random(40, 80);
-		const rd = new RainDrop(x, y, size);
-		rds.push(rd);
+	const pad = 60;
+	const rows = height / pad + 1;
+	const cols = width / pad + 1;
+	for(let r=0; r<rows; r++){
+		for(let c=0; c<cols; c++){
+			let x = c * pad;
+			const y = r * pad;
+			if(r%2 == 0) x += pad / 2;
+			const size = random(pad*0.5, pad*1.0);
+			const rd = new RainDrop(x, y, size);
+			rds.push(rd);
+		}
 	}
 }
 
@@ -29,7 +35,7 @@ function draw(){
 
 class RainDrop{
 
-	constructor(x, y, size, rot=10){
+	constructor(x, y, size, rot=8){
 		this._x   = x;
 		this._y   = y;
 		this._w   = size;
