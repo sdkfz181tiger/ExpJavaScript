@@ -32,7 +32,7 @@ function getColor(colors){
 class CCurve{
 
 	constructor(){
-		console.log("CCurve");
+		//console.log("CCurve");
 	}
 
 	draw(aX, aY, bX, bY, depth){
