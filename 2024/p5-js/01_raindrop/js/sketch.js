@@ -20,7 +20,7 @@ function setup(){
 			let x = c * pad;
 			const y = r * pad;
 			if(r%2 == 0) x += pad / 2;
-			const size = random(pad*0.5, pad*1.0);
+			const size = random(pad*0.7, pad*1.0);
 			const rd = new RainDrop(x, y, size);
 			rds.push(rd);
 		}
