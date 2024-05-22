@@ -17,11 +17,20 @@ function draw(){
 
 	stroke(255); strokeWeight(1);
 
-	const cX = width / 2;
-	const cY = height * 0.65;
+	const x = width / 2;
+	const y = height * 0.65;
 	const len = width<height?width*0.5:height*0.6;
+	const deg = -90;
+	const aX = x + len * cos(deg);
+	const aY = y + len * sin(deg);
+	const bX = x + len * cos(deg+120);
+	const bY = y + len * sin(deg+120);
+	const cX = x + len * cos(deg+240);
+	const cY = y + len * sin(deg+240);
+	const points = [[aX, aY], [bX, bY], [cX, cY]];
+
 	const gasket = new Gasket();
-	gasket.draw(cX, cY, len, 5);
+	gasket.draw(points, 5, BLACK);
 }
 
 function getColor(colors){
@@ -34,21 +43,7 @@ class Gasket{
 		//console.log("Gasket");
 	}
 
-	draw(x, y, len, depth){
-		//line(sX, sY, eX, eY);
-
-		const deg = -90;
-		const aX = x + len * cos(deg);
-		const aY = y + len * sin(deg);
-		const bX = x + len * cos(deg+120);
-		const bY = y + len * sin(deg+120);
-		const cX = x + len * cos(deg+240);
-		const cY = y + len * sin(deg+240);
-		const points = [[aX, aY], [bX, bY], [cX, cY]];
-		this.drawUnit(points, depth, BLACK);
-	}
-
-	drawUnit(points, depth, c){
+	draw(points, depth, c){
 
 		noStroke(); fill(c);
 		beginShape();
@@ -62,10 +57,10 @@ class Gasket{
 		const pA = this.getMid(points[0], points[1]);
 		const pB = this.getMid(points[1], points[2]);
 		const pC = this.getMid(points[2], points[0]);
-		this.drawUnit([pA, pB, pC], 0, BLACK);// Center
-		this.drawUnit([points[0], pA, pC], depth-1, WHITE);// Top
-		this.drawUnit([points[1], pA, pB], depth-1, WHITE);// Left
-		this.drawUnit([points[2], pB, pC], depth-1, WHITE);// Right
+		this.draw([pA, pB, pC], 0, BLACK);// Center
+		this.draw([points[0], pA, pC], depth-1, WHITE);// Top
+		this.draw([points[1], pA, pB], depth-1, WHITE);// Left
+		this.draw([points[2], pB, pC], depth-1, WHITE);// Right
 	}
 
 	getMid(pA, pB){
