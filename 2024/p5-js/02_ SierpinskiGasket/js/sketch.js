@@ -1,7 +1,7 @@
 "use strict"
 
 const COLORS = ["#3a7ca5", "#d9dcd6", "#16425b", "#81c3d7"];
-const WHITE  = "#EEEEEE";
+const WHITE  = "#eeeeee";
 const BLACK  = "#2f6690";
 
 function setup(){
@@ -28,44 +28,35 @@ function draw(){
 	const cX = x + len * cos(deg+240);
 	const cY = y + len * sin(deg+240);
 	const points = [[aX, aY], [bX, bY], [cX, cY]];
-
-	const fractal = new Fractal();
-	fractal.draw(points, 5, BLACK);
+	drawFractal(points, 5, BLACK);
 }
 
 function getColor(colors){
 	return colors[floor(random()*colors.length)];
 }
 
-class Fractal{
+function drawFractal(points, depth, c){
 
-	constructor(){
-		//console.log("Fractal");
+	noStroke(); fill(c);
+	beginShape();
+	for(let point of points){
+		vertex(point[0], point[1]);
 	}
+	endShape(CLOSE);
 
-	draw(points, depth, c){
+	if(depth <= 0) return;
 
-		noStroke(); fill(c);
-		beginShape();
-		for(let point of points){
-			vertex(point[0], point[1]);
-		}
-		endShape(CLOSE);
+	const pA = getMid(points[0], points[1]);
+	const pB = getMid(points[1], points[2]);
+	const pC = getMid(points[2], points[0]);
+	drawFractal([pA, pB, pC], 0, BLACK);// Center
+	drawFractal([points[0], pA, pC], depth-1, WHITE);// Top
+	drawFractal([points[1], pA, pB], depth-1, WHITE);// Left
+	drawFractal([points[2], pB, pC], depth-1, WHITE);// Right
+}
 
-		if(depth <= 0) return;
-
-		const pA = this.getMid(points[0], points[1]);
-		const pB = this.getMid(points[1], points[2]);
-		const pC = this.getMid(points[2], points[0]);
-		this.draw([pA, pB, pC], 0, BLACK);// Center
-		this.draw([points[0], pA, pC], depth-1, WHITE);// Top
-		this.draw([points[1], pA, pB], depth-1, WHITE);// Left
-		this.draw([points[2], pB, pC], depth-1, WHITE);// Right
-	}
-
-	getMid(pA, pB){
-		const x = (pA[0] + pB[0]) / 2;
-		const y = (pA[1] + pB[1]) / 2;
-		return [x, y];
-	}
+function getMid(pA, pB){
+	const x = (pA[0] + pB[0]) / 2;
+	const y = (pA[1] + pB[1]) / 2;
+	return [x, y];
 }
