@@ -17,14 +17,10 @@ function draw(){
 
 	stroke(255); strokeWeight(1);
 
-	const len = (width<height)?width*0.8:height*0.8;
-	const x = width/2 - len/2;
-	const y = height/2 - len/2;
-	drawFractal(x, y, len, 3);
-
-	// TODO: test
-	const result = convertStr("A", 3);
-	console.log("result:", result);
+	const x = width / 2;
+	const y = height / 2;
+	const len = width;
+	drawFractal(x, y, len, 2);
 }
 
 function getColor(colors){
@@ -32,7 +28,11 @@ function getColor(colors){
 }
 
 function drawFractal(x, y, len, depth){
-	noStroke(); fill(WHITE);
+	stroke(WHITE); noFill();
+
+	// TODO: test
+	const str = convertStr("A", depth);
+	console.log("str:", str);
 
 
 }
