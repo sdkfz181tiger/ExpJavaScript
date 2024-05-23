@@ -1,7 +1,7 @@
 "use strict"
 
 const COLORS = ["#3a7ca5", "#d9dcd6", "#16425b", "#81c3d7"];
-const WHITE  = "#EEEEEE";
+const WHITE  = "#eeeeee";
 const BLACK  = "#2f6690";
 
 function setup(){
@@ -17,12 +17,12 @@ function draw(){
 
 	stroke(255); strokeWeight(1);
 
-	const aX = width * 0.3;
-	const aY = height * 0.25;
-	const bX = width * 0.7;
-	const bY = height * 0.25;
+	const len = (width<height)?width*0.8:height*0.8;
+	const x = width/2 - len/2;
+	const y = height/2 - len/2;
+
 	const fractal = new Fractal();
-	fractal.draw(aX, aY, bX, bY, 14);
+	fractal.draw(x, y, len, 3);
 }
 
 function getColor(colors){
@@ -35,19 +35,21 @@ class Fractal{
 		//console.log("Fractal");
 	}
 
-	draw(aX, aY, bX, bY, depth){
-		
-		if(depth <= 0){
-			line(aX, aY, bX, bY);
-			return;
+	draw(x, y, len, depth){
+
+		noStroke(); fill(WHITE);
+		const pad = len / 3;
+		for(let r=0; r<3; r++){
+			for(let c=0; c<3; c++){
+				const cX = x + pad*c;
+				const cY = y + pad*r;
+				if(r==1 && c==1){
+					square(cX, cY, pad);
+					continue;
+				}
+				if(depth <= 0) continue;
+				this.draw(cX, cY, pad, depth-1);
+			}
 		}
-		const mX = (aX + bX) / 2;
-		const mY = (aY + bY) / 2;
-		const len = sqrt((bX-aX)**2+(bY-aY)**2) / 2;
-		const deg = atan2(bY-aY, bX-aX) + 90;
-		const cX = mX + len * cos(deg);
-		const cY = mY + len * sin(deg);
-		this.draw(aX, aY, cX, cY, depth-1);
-		this.draw(cX, cY, bX, bY, depth-1);
 	}
 }

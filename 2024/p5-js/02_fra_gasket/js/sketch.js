@@ -29,18 +29,18 @@ function draw(){
 	const cY = y + len * sin(deg+240);
 	const points = [[aX, aY], [bX, bY], [cX, cY]];
 
-	const gasket = new Gasket();
-	gasket.draw(points, 5, BLACK);
+	const fractal = new Fractal();
+	fractal.draw(points, 5, BLACK);
 }
 
 function getColor(colors){
 	return colors[floor(random()*colors.length)];
 }
 
-class Gasket{
+class Fractal{
 
 	constructor(){
-		//console.log("Gasket");
+		//console.log("Fractal");
 	}
 
 	draw(points, depth, c){
