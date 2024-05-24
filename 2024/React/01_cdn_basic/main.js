@@ -13,13 +13,21 @@ const MyHello = ()=>{return(
 	</div>
 );}
 
-// Props
+// Props1
+const MyTitle = ({init})=>{return(
+	<div>
+		<h1>{init}</h1>
+	</div>
+);}
+
+// Props2
 const MyGreeting = ({myName, myAge})=>{return(
 	<div>
 		<p>Hello, {myName}, {myAge}!!</p>
 	</div>
 );}
 
+// Props3
 const MyLoop = ({myArr})=>{return(
 	<dl>
 		{myArr.map(elem=>(<li>{elem.name}, {elem.age}</li>))}
@@ -42,6 +50,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyHello/>
+		<MyTitle init="Basic"/>
 		<MyGreeting myName="Taro" myAge={20}/>
 		<MyLoop myArr={member}/>
 		<MyCounter init={0}/>

@@ -7,9 +7,9 @@ const names = [
 ];
 
 // Title
-const MyTitle = ({myTitle})=>{return(
+const MyTitle = ({init})=>{return(
 	<div>
-		<h1>{myTitle}</h1>
+		<h1>{init}</h1>
 	</div>
 );}
 
@@ -31,7 +31,7 @@ const MyNickname = ({init, myNames})=>{
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MyTitle myTitle="Nickname Maker" />
+		<MyTitle init="Nickname Maker" />
 		<MyNickname init="---" myNames={names} />
 	</React.StrictMode>
 );

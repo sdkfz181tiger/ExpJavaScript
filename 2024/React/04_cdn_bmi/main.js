@@ -8,9 +8,9 @@ const labels = [
 ];
 
 // Title
-const MyTitle = ({myTitle})=>{return(
+const MyTitle = ({init})=>{return(
 	<div>
-		<h1>{myTitle}</h1>
+		<h1>{init}</h1>
 	</div>
 );}
 
@@ -59,7 +59,7 @@ const MyBMICalc = ({init, myLabels})=>{
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MyTitle myTitle="BMI Calc" />
+		<MyTitle init="BMI Calc" />
 		<MyBMICalc init="---" myLabels={labels} />
 	</React.StrictMode>
 );
