@@ -32,8 +32,8 @@ const MyCounter = ({init})=>{
 	const clickEvent = ()=>setCount(counter + 1);// Event
 	return(
 	<div>
-		<div>Counter:{counter}</div>
-		<button onClick={clickEvent}>Click</button>
+		<p>Counter:{counter}</p>
+		<p><button onClick={clickEvent}>Click</button></p>
 	</div>
 );}
 
