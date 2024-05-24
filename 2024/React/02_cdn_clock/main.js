@@ -10,7 +10,7 @@ const MyTitle = ({init})=>{return(
 // Clock
 const MyClock = ({init})=>{
 	const [clock, setClock] = React.useState(init);// State
-	setInterval(()=>{setClock(getClock());}, 500);// Interval
+	setInterval(()=>setClock(getClock()), 500);// Interval
 	return(
 	<div>
 		<h2>{clock}</h2>
