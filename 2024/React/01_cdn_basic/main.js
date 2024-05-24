@@ -1,12 +1,28 @@
 "use strict"
 
+// Hello
+const MyHello = ()=>{return(
+	<div>
+		<h1>Hello, React with CDN!!</h1>
+	</div>
+);}
+
+// Render
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+	<React.StrictMode>
+		<MyHello/>
+	</React.StrictMode>
+);
+
+/*
 const member = [
 	{"name": "Jiro",   "age": 13},
 	{"name": "Saburo", "age": 12},
 	{"name": "Shiro",  "age": 10}
 ];
 
-// Basic
+// Hello
 const MyHello = ()=>{return(
 	<div>
 		<h1>Hello, React with CDN!!</h1>
@@ -14,9 +30,9 @@ const MyHello = ()=>{return(
 );}
 
 // Props1
-const MyTitle = ({init})=>{return(
+const MyTitle = ({myMsg})=>{return(
 	<div>
-		<h1>{init}</h1>
+		<h1>{myMsg}</h1>
 	</div>
 );}
 
@@ -35,8 +51,8 @@ const MyLoop = ({myArr})=>{return(
 );}
 
 // State
-const MyCounter = ({init})=>{
-	const [counter, setCount] = React.useState(init);// State
+const MyCounter = ({myCnt})=>{
+	const [counter, setCount] = React.useState(myCnt);// State
 	const clickEvent = ()=>setCount(counter + 1);// Event
 	return(
 	<div>
@@ -50,9 +66,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyHello/>
-		<MyTitle init="Basic"/>
+		<MyTitle myMsg="Basic"/>
 		<MyGreeting myName="Taro" myAge={14}/>
 		<MyLoop myArr={member}/>
-		<MyCounter init={0}/>
+		<MyCounter myCnt={0}/>
 	</React.StrictMode>
 );
+*/

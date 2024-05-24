@@ -7,15 +7,15 @@ const names = [
 ];
 
 // Title
-const MyTitle = ({init})=>{return(
+const MyTitle = ({myMsg})=>{return(
 	<div>
-		<h1>{init}</h1>
+		<h1>{myMsg}</h1>
 	</div>
 );}
 
 // Nickname Maker
-const MyNickname = ({init, myNames})=>{
-	const [result, setResult] = React.useState(init);// State
+const MyNickname = ({myMsg, myNames})=>{
+	const [result, setResult] = React.useState(myMsg);// State
 	const clickEvent = ()=>{
 		const rdm = Math.floor(Math.random()*myNames.length);
 		setResult(myNames[rdm]);
@@ -31,7 +31,7 @@ const MyNickname = ({init, myNames})=>{
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MyTitle init="Nickname Maker" />
-		<MyNickname init="---" myNames={names} />
+		<MyTitle myMsg="Nickname Maker" />
+		<MyNickname myMsg="---" myNames={names} />
 	</React.StrictMode>
 );

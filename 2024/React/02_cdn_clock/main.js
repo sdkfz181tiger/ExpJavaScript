@@ -1,15 +1,15 @@
 "use strict"
 
 // Title
-const MyTitle = ({init})=>{return(
+const MyTitle = ({myMsg})=>{return(
 	<div>
-		<h1>{init}</h1>
+		<h1>{myMsg}</h1>
 	</div>
 );}
 
 // Clock
-const MyClock = ({init})=>{
-	const [clock, setClock] = React.useState(init);// State
+const MyClock = ({myMsg})=>{
+	const [clock, setClock] = React.useState(myMsg);// State
 	setInterval(()=>setClock(getClock()), 500);// Interval
 	return(
 	<div>
@@ -33,7 +33,7 @@ const getClock = ()=>{
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MyTitle init="Clock"/>
-		<MyClock init="00:00:00"/>
+		<MyTitle myMsg="Clock"/>
+		<MyClock myMsg="00:00:00"/>
 	</React.StrictMode>
 );

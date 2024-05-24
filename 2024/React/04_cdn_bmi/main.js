@@ -8,14 +8,14 @@ const labels = [
 ];
 
 // Title
-const MyTitle = ({init})=>{return(
+const MyTitle = ({myMsg})=>{return(
 	<div>
-		<h1>{init}</h1>
+		<h1>{myMsg}</h1>
 	</div>
 );}
 
 // BMI Calc
-const MyBMICalc = ({init, myLabels})=>{
+const MyBMICalc = ({myMsg, myLabels})=>{
 
 	const [form, setForm] = React.useState({// State
 		cm: 170,
@@ -25,8 +25,8 @@ const MyBMICalc = ({init, myLabels})=>{
 		setForm({...form, [e.target.name]: e.target.value});
 	}
 
-	const [result, setResult] = React.useState(init);// State
-	const clickEvent =()=>{
+	const [result, setResult] = React.useState(myMsg);// State
+	const clickEvent = ()=>{
 		// Calc
 		const bmi = Number(form.kg) / ((Number(form.cm) * 0.01)**2);
 		let result = "Error";
@@ -59,7 +59,7 @@ const MyBMICalc = ({init, myLabels})=>{
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MyTitle init="BMI Calc" />
-		<MyBMICalc init="---" myLabels={labels} />
+		<MyTitle myMsg="BMI Calc" />
+		<MyBMICalc myMsg="---" myLabels={labels} />
 	</React.StrictMode>
 );
