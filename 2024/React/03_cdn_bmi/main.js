@@ -1,10 +1,10 @@
 "use strict"
 
-const results = [
-	"やせ",
-	"標準",
-	"軽度肥満",
-	"重度肥満"
+const labels = [
+	{"limit": 18.5, "label": "やせ"},
+	{"limit": 25.0, "label": "標準"},
+	{"limit": 30.0, "label": "軽度肥満"},
+	{"limit": 99.9, "label": "重度肥満"}
 ];
 
 // Title
@@ -15,7 +15,7 @@ const MyTitle = ({myTitle})=>{return(
 );}
 
 // BMI Calc
-const MyBMICalc = ({init, myResults})=>{
+const MyBMICalc = ({init, myLabels})=>{
 
 	const [form, setForm] = React.useState({// State
 		cm: 170,
@@ -29,11 +29,13 @@ const MyBMICalc = ({init, myResults})=>{
 	const clickEvent =()=>{
 		// Calc
 		const bmi = Number(form.kg) / ((Number(form.cm) * 0.01)**2);
-		let result = "---";
-		if(bmi < 18.5) result = myResults[0];
-		else if(bmi < 25.0) result = myResults[1];
-		else if(bmi < 30.0) result = myResults[2];
-		else result = myResults[3];
+		let result = "Error";
+		for(let myLabel of myLabels){
+			if(bmi < myLabel.limit){
+				result = myLabel.label;
+				break;
+			}
+		}
 		setResult(result);// Result
 	}
 	return(
@@ -58,6 +60,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyTitle myTitle="BMI Calc" />
-		<MyBMICalc init="---" myResults={results} />
+		<MyBMICalc init="---" myLabels={labels} />
 	</React.StrictMode>
 );
