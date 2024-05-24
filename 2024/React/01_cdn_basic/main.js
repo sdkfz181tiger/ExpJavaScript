@@ -1,6 +1,6 @@
 "use strict"
 
-// Hello
+// Helloコンポーネント
 const MyHello = ()=>{return(
 	<div>
 		<h1>Hello, React with CDN!!</h1>
