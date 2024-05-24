@@ -42,7 +42,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyHello/>
-		<MyGreeting myName="Taro" myAge="20"/>
+		<MyGreeting myName="Taro" myAge={20}/>
 		<MyLoop myArr={member}/>
 		<MyCounter init={0}/>
 	</React.StrictMode>
