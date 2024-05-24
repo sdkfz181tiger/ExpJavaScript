@@ -38,11 +38,17 @@ const MyBMICalc = ({init, myResults})=>{
 	}
 	return(
 	<div>
-		<p>身長(cm): <input id="cm" name="cm" type="text"
-			onChange={handleForm} value={form.cm}/></p>
-		<p>体重(kg): <input id="kg" name="kg" type="text"
-			onChange={handleForm} value={form.kg}/></p>
-		<p><button onClick={clickEvent}>計算</button></p>
+		<p>
+			身長(cm): <input id="cm" name="cm" type="text" 
+				onChange={handleForm} value={form.cm}/>
+		</p>
+		<p>
+			体重(kg): <input id="kg" name="kg" type="text" 
+				onChange={handleForm} value={form.kg}/>
+		</p>
+		<p>
+			<button onClick={clickEvent}>計算</button>
+		</p>
 		<p>結果: {result}</p>
 	</div>
 );}
