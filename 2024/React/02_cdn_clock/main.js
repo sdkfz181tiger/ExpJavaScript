@@ -12,7 +12,9 @@ const MyClock = ({init})=>{
 	const [clock, setClock] = React.useState(init);// State
 	setInterval(()=>{setClock(getClock());}, 500);// Interval
 	return(
-	<div>{clock}</div>
+	<div>
+		<h2>{clock}</h2>
+	</div>
 );}
 
 const getClock = ()=>{
