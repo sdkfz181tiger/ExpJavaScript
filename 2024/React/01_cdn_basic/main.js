@@ -1,9 +1,9 @@
 "use strict"
 
 const member = [
-	{"name": "Jack",  "age": 18},
-	{"name": "Queen", "age": 32},
-	{"name": "King",  "age": 40}
+	{"name": "Jiro",   "age": 13},
+	{"name": "Saburo", "age": 12},
+	{"name": "Shiro",  "age": 10}
 ];
 
 // Basic
@@ -51,7 +51,7 @@ root.render(
 	<React.StrictMode>
 		<MyHello/>
 		<MyTitle init="Basic"/>
-		<MyGreeting myName="Taro" myAge={20}/>
+		<MyGreeting myName="Taro" myAge={14}/>
 		<MyLoop myArr={member}/>
 		<MyCounter init={0}/>
 	</React.StrictMode>
