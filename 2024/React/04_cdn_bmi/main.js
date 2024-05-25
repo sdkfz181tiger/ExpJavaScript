@@ -40,11 +40,11 @@ const MyBmiCalc = ({myMsg, myLabels})=>{
 	return(
 	<div>
 		<p>
-			身長(cm): <input id="cm" name="cm" type="text" 
+			身長(cm): <input name="cm" type="text" 
 				onChange={handleForm} value={form.cm}/>
 		</p>
 		<p>
-			体重(kg): <input id="kg" name="kg" type="text" 
+			体重(kg): <input name="kg" type="text" 
 				onChange={handleForm} value={form.kg}/>
 		</p>
 		<p>
