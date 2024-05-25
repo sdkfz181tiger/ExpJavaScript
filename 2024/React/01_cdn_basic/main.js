@@ -1,23 +1,21 @@
 "use strict"
 
-const member = [
-	{"name": "Nobunaga",  "age": 13},
-	{"name": "Hideyoshi", "age": 12},
-	{"name": "Ieyasu",    "age": 10}
-];
-
-// 1, MyLoopコンポーネント
-const MyLoop = ({myArr})=>{return(
-	<dl>
-		{myArr.map(elem=><li>{elem.name}, {elem.age}</li>)}
-	</dl>
+// 1, MyCounterコンポーネント
+const MyCounter = ({myCnt})=>{
+	const [counter, setCount] = React.useState(myCnt);// State
+	const clickEvent = ()=>setCount(counter + 1);// Event
+	return(
+	<div>
+		<p>Counter:{counter}</p>
+		<p><button onClick={clickEvent}>Click</button></p>
+	</div>
 );}
 
 // 2, React.jsを起動する
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MyLoop myArr={member}/>
+		<MyCounter myCnt={123}/>
 	</React.StrictMode>
 );
 
