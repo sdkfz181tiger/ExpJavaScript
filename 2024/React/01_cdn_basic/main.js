@@ -9,7 +9,7 @@ const member = [
 // 1, MyLoopコンポーネント
 const MyLoop = ({myArr})=>{return(
 	<dl>
-		{myArr.map(elem=>(<li>{elem.name}, {elem.age}</li>))}
+		{myArr.map(elem=><li>{elem.name}, {elem.age}</li>)}
 	</dl>
 );}
 

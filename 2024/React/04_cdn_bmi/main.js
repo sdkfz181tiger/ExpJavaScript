@@ -14,8 +14,8 @@ const MyTitle = ({myMsg})=>{return(
 	</div>
 );}
 
-// BMI Calc
-const MyBMICalc = ({myMsg, myLabels})=>{
+// MyBmiCalc
+const MyBmiCalc = ({myMsg, myLabels})=>{
 
 	const [form, setForm] = React.useState({// State
 		cm: 170, kg: 60
@@ -27,7 +27,7 @@ const MyBMICalc = ({myMsg, myLabels})=>{
 	const [result, setResult] = React.useState(myMsg);// State
 	const clickEvent = ()=>{
 		// Calc
-		const bmi = Number(form.kg) / ((Number(form.cm) * 0.01)**2);
+		const bmi = Number(form.kg) / ((Number(form.cm)*0.01)**2);
 		let result = "Error";
 		for(let myLabel of myLabels){
 			if(bmi < myLabel.limit){
@@ -59,6 +59,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyTitle myMsg="BMI Calc" />
-		<MyBMICalc myMsg="---" myLabels={labels} />
+		<MyBmiCalc myMsg="---" myLabels={labels} />
 	</React.StrictMode>
 );
