@@ -7,7 +7,7 @@ const labels = [
 	{"limit": 99.9, "label": "重度肥満"}
 ];
 
-// Title
+// MyTitle
 const MyTitle = ({myMsg})=>{return(
 	<div>
 		<h1>{myMsg}</h1>
@@ -18,8 +18,7 @@ const MyTitle = ({myMsg})=>{return(
 const MyBMICalc = ({myMsg, myLabels})=>{
 
 	const [form, setForm] = React.useState({// State
-		cm: 170,
-		kg: 60
+		cm: 170, kg: 60
 	});
 	const handleForm = e=>{
 		setForm({...form, [e.target.name]: e.target.value});

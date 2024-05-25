@@ -1,13 +1,13 @@
 "use strict"
 
-// Title
+// MyTitle
 const MyTitle = ({myMsg})=>{return(
 	<div>
 		<h1>{myMsg}</h1>
 	</div>
 );}
 
-// Clock
+// MyClock
 const MyClock = ({myMsg})=>{
 	const [clock, setClock] = React.useState(myMsg);// State
 	setInterval(()=>setClock(getClock()), 500);// Interval

@@ -1,12 +1,18 @@
 "use strict"
 
-const names = [
+const namesA = [
+	"普通の",
+	"噂の",
+	"伝説の"
+];
+
+const namesB = [
 	"メタルスライム",
 	"はぐれメタル",
 	"メタルキング"
 ];
 
-// Title
+// MyTitle
 const MyTitle = ({myMsg})=>{return(
 	<div>
 		<h1>{myMsg}</h1>
@@ -14,15 +20,16 @@ const MyTitle = ({myMsg})=>{return(
 );}
 
 // Nickname Maker
-const MyNickname = ({myMsg, myNames})=>{
+const MyNickname = ({myMsg, myNamesA, myNamesB})=>{
 	const [result, setResult] = React.useState(myMsg);// State
 	const clickEvent = ()=>{
-		const rdm = Math.floor(Math.random()*myNames.length);
-		setResult(myNames[rdm]);
+		const rdmA = Math.floor(Math.random()*myNamesA.length);
+		const rdmB = Math.floor(Math.random()*myNamesB.length);
+		setResult(myNames[rdmA] + myNames[rdmB]);
 	}
 	return(
 	<div>
-		<p>あなたのニックネームは:{result}です!!</p>
+		<h2>あなたのニックネームは:{result}です!!</h2>
 		<p><button onClick={clickEvent}>Click</button></p>
 	</div>
 );}
@@ -32,6 +39,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyTitle myMsg="Nickname Maker" />
-		<MyNickname myMsg="---" myNames={names} />
+		<MyNickname myMsg="---" myNamesA={namesA} myNamesB={namesB} />
 	</React.StrictMode>
 );
