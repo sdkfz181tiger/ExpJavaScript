@@ -1,25 +1,5 @@
 "use strict"
 
-// 1, MyCounterコンポーネント
-const MyCounter = ({myCnt})=>{
-	const [counter, setCount] = React.useState(myCnt);// State
-	const clickEvent = ()=>setCount(counter + 1);// Event
-	return(
-	<div>
-		<p>Counter:{counter}</p>
-		<p><button onClick={clickEvent}>Click</button></p>
-	</div>
-);}
-
-// 2, React.jsを起動する
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-	<React.StrictMode>
-		<MyCounter myCnt={123}/>
-	</React.StrictMode>
-);
-
-/*
 // MyHelloコンポーネント
 const MyHello = ()=>{return(
 	<div>
@@ -70,10 +50,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MyHello/>
-		<MyTitle myMsg="Basic"/>
+		<MyTitle myMsg="Hello, Props!!"/>
 		<MyGreeting myName="Taro" myAge={14}/>
 		<MyLoop myArr={member}/>
 		<MyCounter myCnt={0}/>
 	</React.StrictMode>
 );
-*/
