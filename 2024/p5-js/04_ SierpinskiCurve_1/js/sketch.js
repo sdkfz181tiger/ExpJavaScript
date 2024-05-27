@@ -42,7 +42,7 @@ function createCmds(str, depth){
 }
 
 function drawCmds(x, y, cmds, len){
-	translate(x, y, len);
+	translate(x, y);
 	rotate(90);
 	for(let cmd of cmds){
 		if(cmd == "A"){
