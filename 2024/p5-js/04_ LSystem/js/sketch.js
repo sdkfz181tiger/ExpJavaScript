@@ -16,33 +16,52 @@ function draw(){
 	noFill(); noStroke();
 
 	stroke(255); strokeWeight(1);
-
-	const x = width / 2;
-	const y = height / 2;
-	const len = width;
-	drawFractal(x, y, len, 2);
+	drawFractal();
 }
 
 function getColor(colors){
 	return colors[floor(random()*colors.length)];
 }
 
-function drawFractal(x, y, len, depth){
+function drawFractal(x, y){
 	stroke(WHITE); noFill();
-
-	// TODO: test
-	const str = convertStr("A", depth);
-	console.log("str:", str);
-
-
+	const depth = 5;
+	const cmds = createCmds("AA", depth);
+	const len = ((width<height)? width:height)/100;
+	drawCmds(width/2, 0, cmds, len);
 }
 
-function convertStr(str, depth){
+function createCmds(str, depth){
 	if(depth <= 0) return str;
 	let result = "";
 	for(let s of str){
-		if(s == "A") result += "ABA";
-		else if(s == "B") result += "BBB";
+		if(s == "A") result += "BABA";
+		if(s == "B") result += "BABB";
 	}
-	return convertStr(result, depth-1);
+	return createCmds(result, depth-1);
+}
+
+function drawCmds(x, y, cmds, len){
+	translate(x, y, len);
+	rotate(90);
+	for(let cmd of cmds){
+		if(cmd == "A"){
+			line(0, 0, len, 0);
+			translate(len, 0);
+			rotate(90);
+			line(0, 0, len, 0);
+			translate(len, 0);
+			rotate(90);
+			continue;
+		}
+		if(cmd == "B"){
+			line(0, 0, len, 0);
+			translate(len, 0);
+			rotate(-45);
+			line(0, 0, len*2, 0);
+			translate(len*2, 0);
+			rotate(-45);
+			continue;
+		}
+	}
 }
