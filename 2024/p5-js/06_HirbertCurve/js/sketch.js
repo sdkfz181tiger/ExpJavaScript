@@ -26,9 +26,14 @@ function getColor(colors){
 function drawFractal(x, y){
 	stroke(WHITE); noFill();
 	const depth = 5;
-	const cmds = createCmds("AA", depth);
-	const len = ((width<height)? width:height)/100;
-	drawCmds(width/2, 0, cmds, len);
+	//const cmds = createCmds("A", depth);
+	const len = ((width<height)? width:height)/10;
+	push();
+	drawCmds(width/2, height/2, "A", len);
+	pop();
+	push();
+	drawCmds(width/2, height/2, "B", len/2);
+	pop();
 }
 
 function createCmds(str, depth){
@@ -43,25 +48,63 @@ function createCmds(str, depth){
 
 function drawCmds(x, y, cmds, len){
 	translate(x, y);
-	rotate(90);
+	//rotate(90);
 	for(let cmd of cmds){
 		if(cmd == "A"){
-			line(0, 0, len, 0);
-			translate(len, 0);
-			rotate(90);
-			line(0, 0, len, 0);
-			translate(len, 0);
-			rotate(90);
+			circle(0, 0, 5);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
 			continue;
 		}
 		if(cmd == "B"){
-			line(0, 0, len, 0);
-			translate(len, 0);
-			rotate(-45);
-			line(0, 0, len*2, 0);
-			translate(len*2, 0);
-			rotate(-45);
-			continue;
+			translate(-len/2, -len/2);
+			circle(0, 0, 5);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
+			line(0, 0, 0, len*2);
+			translate(0, len*2);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(-90);
+			line(0, 0, 0, len*2);
+			translate(0, len*2);
+			rotate(-90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(90);
+			line(0, 0, 0, len);
+			translate(0, len);
+			rotate(90);
+			line(0, 0, 0, len);
+			translate(0, len);
 		}
 	}
 }
