@@ -4,8 +4,6 @@ const COLORS = ["#3a7ca5", "#d9dcd6", "#16425b", "#81c3d7"];
 const WHITE  = "#eeeeee";
 const BLACK  = "#2f6690";
 
-const points = [];
-
 function setup(){
 	createCanvas(windowWidth, windowHeight);
 	angleMode(DEGREES); imageMode(CENTER);
@@ -54,7 +52,6 @@ function drawCmds(x, y, cmds, len){
 			line(0, 0, len, 0);
 			translate(len, 0);
 			rotate(90);
-			// TODO!!
 			continue;
 		}
 		if(cmd == "B"){
