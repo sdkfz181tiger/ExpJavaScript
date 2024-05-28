@@ -1,21 +1,16 @@
 "use strict"
 
-const COLORS = ["#3a7ca5", "#d9dcd6", "#16425b", "#81c3d7"];
-const WHITE  = "#eeeeee";
-const BLACK  = "#2f6690";
+const WHITE = "#eeeeee";
+const BLACK = "#2f6690";
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); imageMode(CENTER);
-	textAlign(CENTER, BOTTOM); textSize(10);
-	frameRate(32); noLoop();
+	angleMode(DEGREES);
+	noLoop(); stroke(WHITE); strokeWeight(2);
 }
 
 function draw(){
 	background(BLACK);
-	noFill(); noStroke();
-
-	stroke(255); strokeWeight(1);
 	drawFractal();
 }
 
@@ -24,7 +19,6 @@ function getColor(colors){
 }
 
 function drawFractal(x, y){
-	stroke(WHITE); noFill();
 	const depth = 5;
 	const cmds = createCmds("AA", depth);
 	const len = ((width<height)? width:height)/100;
