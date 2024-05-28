@@ -26,10 +26,6 @@ function draw(){
 	drawFractal(points, 5, BLACK);
 }
 
-function getColor(colors){
-	return colors[floor(random()*colors.length)];
-}
-
 function drawFractal(points, depth, c){
 
 	fill(c);

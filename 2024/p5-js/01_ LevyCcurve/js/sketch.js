@@ -19,10 +19,6 @@ function draw(){
 	drawFractal(aX, aY, bX, bY, 14);
 }
 
-function getColor(colors){
-	return colors[floor(random()*colors.length)];
-}
-
 function drawFractal(aX, aY, bX, bY, depth){
 	if(depth <= 0){
 		line(aX, aY, bX, bY);

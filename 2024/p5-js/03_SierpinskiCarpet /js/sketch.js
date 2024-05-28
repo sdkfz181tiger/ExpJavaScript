@@ -18,10 +18,6 @@ function draw(){
 	drawFractal(x, y, len, 3);
 }
 
-function getColor(colors){
-	return colors[floor(random()*colors.length)];
-}
-
 function drawFractal(x, y, len, depth){
 	fill(WHITE);
 	square(x, y, len);

@@ -14,10 +14,6 @@ function draw(){
 	drawFractal();
 }
 
-function getColor(colors){
-	return colors[floor(random()*colors.length)];
-}
-
 function drawFractal(x, y){
 	const depth = 5;
 	const cmds = createCmds("AA", depth);
