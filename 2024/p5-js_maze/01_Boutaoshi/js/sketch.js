@@ -3,8 +3,6 @@
 const WHITE = "#eeeeee";
 const BLACK = "#333333";
 const RED   = "#dd6624";
-const GREEN = "#24bb66";
-const BLUE  = "#2f6690";
 
 const ROWS  = 13;// 迷路の大きさ(行数)
 const COLS  = 13;// 迷路の大きさ(列数)
@@ -81,7 +79,7 @@ function showMaze(){
 		for(let c=0; c<COLS; c++){
 			if(maze[r][c] == M_ROAD) continue;
 			if(maze[r][c] == M_WALL) fill(WHITE);
-			if(maze[r][c] == M_PILLAR) fill(BLUE);
+			if(maze[r][c] == M_PILLAR) fill(RED);
 			const x = oX + c * size;
 			const y = oY + r * size;
 			square(x, y, size);

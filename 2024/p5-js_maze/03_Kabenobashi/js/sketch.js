@@ -3,8 +3,6 @@
 const WHITE = "#eeeeee";
 const BLACK = "#333333";
 const RED   = "#dd6624";
-const GREEN = "#24bb66";
-const BLUE  = "#2f6690";
 
 const ROWS  = 13;// 迷路の大きさ(行数)
 const COLS  = 13;// 迷路の大きさ(列数)
