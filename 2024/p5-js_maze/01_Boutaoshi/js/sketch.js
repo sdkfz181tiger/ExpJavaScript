@@ -80,7 +80,7 @@ function showMaze(){
 	for(let r=0; r<ROWS; r++){
 		for(let c=0; c<COLS; c++){
 			if(maze[r][c] == M_ROAD) continue;
-			if(maze[r][c] == M_WALL) fill(GREEN);
+			if(maze[r][c] == M_WALL) fill(WHITE);
 			if(maze[r][c] == M_PILLAR) fill(BLUE);
 			const x = oX + c * size;
 			const y = oY + r * size;
