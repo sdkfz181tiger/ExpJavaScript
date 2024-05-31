@@ -10,7 +10,7 @@ const COLS  = 13;// 迷路の大きさ(列数)
 const M_ROAD = 0;// 道
 const M_WALL = 1;// 壁
 
-// 迷路の配列
+// 迷路の配列(1, 全てのマスを壁として埋めておく)
 const maze  = Array.from(new Array(ROWS), ()=>new Array(COLS).fill(M_WALL));
 const roads = [];// 道データ(描画用)
 
@@ -23,13 +23,14 @@ function setup(){
 function draw(){
 	background(BLACK);
 
+	randomSeed(99);// Seed
 	createMaze();// 迷路を作る
 	drawMaze();// 迷路を描画する
 }
 
 function createMaze(){
 
-	// 通路の開始位置を決める(行奇数,列奇数)
+	// 2, 通路の開始位置を決める(行奇数,列奇数)
 	const r = floor(random()*((ROWS-2)/2))*2+1;
 	const c = floor(random()*((COLS-2)/2))*2+1;
 	maze[r][c] = M_ROAD;
@@ -39,8 +40,8 @@ function createMaze(){
 
 function extendRoad(r, c){
 
+	// 3, 進行方向4方向をシャッフルした配列を用意する
 	const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
-	// 要素が少ないのでlengthを使う
 	for(let i=dirs.length-1; 0<i; i--){
 		const tmp = dirs[i];
 		const rdm = floor(random()*dirs.length);
@@ -48,6 +49,7 @@ function extendRoad(r, c){
 		dirs[rdm] = tmp;
 	}
 
+	// 4, シャッフルした進行方向それぞれに道を作る(進める所まで)
 	for(let dir of dirs){
 		const oR = dir[0];
 		const oC = dir[1];

@@ -23,6 +23,7 @@ function setup(){
 function draw(){
 	background(BLACK);
 
+	randomSeed(88);// Seed
 	createMaze();// 迷路生成
 }
 
@@ -48,7 +49,7 @@ function createMaze(){
 	// 3, 起点をシャッフルする
 	for(let i=points.length-1; 0<=i; i--){
 		const tmp = points[i];
-		const rdm = Math.floor(Math.random() * i);
+		const rdm = floor(random() * i);
 		points[i] = points[rdm];
 		points[rdm] = tmp;
 	}
@@ -65,13 +66,12 @@ function extendWall(r, c, walls){
 
 	if(maze[r][c] == M_WALL) return;
 	walls.push({r:r, c:c});
-	//console.log("extendWall:", r, c, "walls:", walls);
 
 	const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
 	// 要素が少ないのでlengthを使う
 	for(let i=dirs.length-1; 0<i; i--){
 		const tmp = dirs[i];
-		const rdm = Math.floor(Math.random()*dirs.length);
+		const rdm = floor(random()*dirs.length);
 		dirs[i] = dirs[rdm];
 		dirs[rdm] = tmp;
 	}
@@ -124,8 +124,8 @@ function drawFrame(){
 	for(let r=0; r<ROWS; r++){
 		for(let c=0; c<COLS; c++){
 			if(maze[r][c] == M_ROAD) continue;
-			const x = Math.floor(oX + c * size);
-			const y = Math.floor(oY + r * size);
+			const x = floor(oX + c * size);
+			const y = floor(oY + r * size);
 			fill(WHITE);
 			square(x, y, size);
 		}
@@ -140,14 +140,14 @@ function drawWall(walls){
 	const oX = width/2 - COLS*size/2;
 	const oY = height/2 - ROWS*size/2;
 	// 壁を描画する
-	const r = Math.floor(Math.random() * 156) + 100;
-	const g = Math.floor(Math.random() * 156) + 100;
-	const b = Math.floor(Math.random() * 156) + 100;
+	const r = floor(random() * 156) + 100;
+	const g = floor(random() * 156) + 100;
+	const b = floor(random() * 156) + 100;
 	const color = r.toString(16) + g.toString(16) + b.toString(16);
 	for(let i=0; i<walls.length; i++){
 		const wall = walls[i];
-		const x = Math.floor(oX + wall.c * size);
-		const y = Math.floor(oY + wall.r * size);
+		const x = floor(oX + wall.c * size);
+		const y = floor(oY + wall.r * size);
 		fill("#" + color);
 		square(x, y, size);
 	}

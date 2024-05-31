@@ -23,6 +23,7 @@ function setup(){
 function draw(){
 	background(BLACK);
 
+	//randomSeed(99);// Seed
 	createMaze();
 	console.table(maze);
 	showMaze();
@@ -30,20 +31,20 @@ function draw(){
 
 function createMaze(){
 
-	// 1, 周囲に壁を作る
+	// 1, 迷路の周囲に外壁を作る
 	for(let r=0; r<ROWS; r++){
 		for(let c=0; c<COLS; c++){
 			maze[r][c] = (r==0||c==0||r==ROWS-1||c==COLS-1)?M_WALL:M_ROAD;
 		}
 	}
-	// 2, 柱と道を作る
+	// 2, 外壁より内部のスペースに"柱"を1マスおきに並べる
 	for(let r=0; r<ROWS; r++){
 		for(let c=0; c<COLS; c++){
 			if(maze[r][c] == M_WALL) continue;
 			maze[r][c] = (r%2==0&&c%2==0)?M_PILLAR:M_ROAD;
 		}
 	}
-	// 3, 柱を基準にして壁を作る
+	// 3, 並べた"柱"それぞれを起点に"上下左右"いずれか1マスを"壁"とする
 	for(let r=2; r<ROWS; r++){
 		for(let c=2; c<COLS; c++){
 			if(maze[r][c] == M_PILLAR){
