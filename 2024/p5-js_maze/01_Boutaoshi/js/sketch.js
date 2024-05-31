@@ -49,7 +49,6 @@ function createMaze(){
 	for(let r=2; r<ROWS; r++){
 		for(let c=2; c<COLS; c++){
 			if(maze[r][c] == M_PILLAR){
-				console.log("This is pillar!!", r, c);
 				if(r==2){
 					setWall(r, c, true);// 1段目の柱からは上下左右に
 				}else{
