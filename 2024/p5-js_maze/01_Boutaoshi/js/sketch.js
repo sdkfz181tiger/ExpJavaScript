@@ -70,7 +70,7 @@ function setWall(r, c, flg){
 
 function showMaze(){
 
-	const size = floor((height*0.8) / ROWS);
+	const size = floor((height*0.8) / ROWS);// セルのサイズ
 
 	// 迷路の描画開始位置
 	const oX = width / 2 - COLS * size / 2;
