@@ -23,7 +23,7 @@ function setup(){
 function draw(){
 	background(BLACK);
 
-	randomSeed(99);// Seed
+	//randomSeed(99);// Seed
 	createMaze();// 迷路を作る
 	drawMaze();// 迷路を描画する
 }

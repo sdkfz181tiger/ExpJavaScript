@@ -23,13 +23,13 @@ function setup(){
 function draw(){
 	background(BLACK);
 
-	randomSeed(88);// Seed
+	//randomSeed(88);// Seed
 	createMaze();// 迷路生成
 }
 
 function createMaze(){
 
-	// 1, 外枠1マス以外を道にする
+	// 1, 外壁1マス以外を道にする
 	for(let r=1; r<ROWS-1; r++){
 		for(let c=1; c<COLS-1; c++){
 			maze[r][c] = M_ROAD;
@@ -37,7 +37,7 @@ function createMaze(){
 	}
 	drawFrame();// 外枠を描画
 
-	// 2, rとcが共に奇数である箇所を洗い出す
+	// 2, 壁を伸ばす起点(グリッドのrとcが共に奇数)箇所を洗い出す
 	for(let r=0; r<ROWS; r++){
 		for(let c=0; c<COLS; c++){
 			if(r%2 != 0 || c%2 != 0) continue;
@@ -59,6 +59,7 @@ function createMaze(){
 }
 
 function extendWall(r, c, walls){
+
 	if(isEnd(walls)) {// 自分の壁に囲まれている場合はやりなおす
 		extendWall(walls[0].r, walls[0].c, []);
 		return;
