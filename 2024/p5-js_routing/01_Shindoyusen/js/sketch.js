@@ -4,9 +4,11 @@ const WHITE = "#eeeeee";
 const BLACK = "#333333";
 const GRAY  = "#777777";
 const RED   = "#ff6624";
+const GREEN = "#66ff24";
+const BLUE  = "#2466ff";
 
-const ROWS  = 13;// 迷路の大きさ(行数)
-const COLS  = 13;// 迷路の大きさ(列数)
+const ROWS  = 23;// 迷路の大きさ(行数)
+const COLS  = 23;// 迷路の大きさ(列数)
 
 const M_ROAD   = 0;// 道
 const M_WALL   = 1;// 壁
@@ -19,43 +21,51 @@ const routes = [];// 探索候補
 const start = {r:1, c:1, stp:0, fR:0, fC:0};// スタート位置
 const goal  = {r:ROWS-2, c:COLS-2};// ゴール位置
 
+let cnt = 0;// トレース用
+
 function setup(){
-	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); noLoop();
+	//createCanvas(windowWidth, windowHeight);
+	createCanvas(950, 550);
+	angleMode(DEGREES); frameRate(32);
 	fill(WHITE); noStroke();
+
+	randomSeed(59);    // Seed
+	createMaze();      // 迷路生成
+	points.push(start);// 探索済みに追加
+	routes.push(start);// 探索候補に追加
+	searchMaze();      // 迷路探索
 }
 
 function draw(){
 	background(BLACK);
 
-	//randomSeed(64);    // Seed
-	createMaze();      // 迷路生成
-	points.push(start);// 探索済みに追加
-	routes.push(start);// 探索候補に追加
-	analyseMaze();     // 迷路探索
-	showMaze();        // 迷路表示
+	showMaze();// 迷路表示
+
+	cnt += 20;// トレース用
+	//saveCanvas("test_" + floor(cnt/20) + ".png");// Save
 }
 
 //==========
 // 迷路を探索するアルゴリズム(深度優先)
 
-function analyseMaze(){
+function searchMaze(){
 
 	const route = routes.shift();// 先頭から取得(幅優先)
-	//const route = routes.pop();// 先頭から取得(深度優先)
+	//const route = routes.pop();// 最後尾から取得(深度優先)
 	const sR    = route.r;
 	const sC    = route.c;
 	const stp   = route.stp;
-	//console.log("analyseMaze:", sR, sC);
 
 	// ゴール判定
 	if(sR == goal.r && sC == goal.c) return;
 	
-	// マンハッタン距離
+	// 上下左右の探索方向
 	let dirs = [
 		{r:-1, c:0, dist:99}, {r:1, c:0, dist:99},
 		{r:0, c:-1, dist:99}, {r:0, c:1, dist:99}
 	];
+
+	// マンハッタン距離でゴール方向を優先
 	for(let i=0; i<dirs.length; i++){
 		const dR = goal.r - (sR+dirs[i].r);
 		const dC = goal.c - (sC+dirs[i].c);
@@ -73,7 +83,7 @@ function analyseMaze(){
 		routes.push(from);// 探索候補に追加
 	}
 
-	if(0 < routes.length) analyseMaze();// 再帰処理
+	if(0 < routes.length) searchMaze();// 再帰処理
 
 	return;
 }
@@ -152,24 +162,42 @@ function showMaze(){
 			square(x, y, size);
 		}
 	}
+
 	// 探索済み
-	for(let point of points){
+	for(let i=0; i<points.length; i++){
+		if(cnt < i) break;
+		const point = points[i];
 		const x = oX + point.c * size + size/2;
 		const y = oY + point.r * size + size/2;
 		fill(GRAY);
 		circle(x, y, size);
-		fill(WHITE);
-		textAlign(CENTER, CENTER);
-		text(point.stp, x, y);
 	}
+
 	// 探索候補(ゴールから逆順にスタートまで辿る)
-	let route = getRoute(goal.r, goal.c);
-	while(route = getRoute(route.fR, route.fC)){
-		const x = oX + route.c * size + size/2;
-		const y = oY + route.r * size + size/2;
-		fill(RED);
-		circle(x, y, size/2);
+	if(points.length < cnt){
+		let route = getRoute(goal.r, goal.c);
+		while(route = getRoute(route.fR, route.fC)){
+			const x = oX + route.c * size + size/2;
+			const y = oY + route.r * size + size/2;
+			fill(GREEN);
+			circle(x, y, size/2);
+		}
+		noLoop();// Stop
 	}
+
+	// Start/Goal
+	fill(BLUE);
+	const sX = oX+start.c*size;
+	const sY = oY+start.r*size;
+	square(sX, sY, size);
+	fill(RED);
+	const gX = oX+goal.c*size;
+	const gY = oY+goal.r*size;
+	square(gX, gY, size);
+	fill(WHITE);
+	textAlign(CENTER, CENTER);
+	text("S", sX+size/2, sY+size/2);
+	text("G", gX+size/2, gY+size/2);
 }
 
 function getRoute(r, c){
