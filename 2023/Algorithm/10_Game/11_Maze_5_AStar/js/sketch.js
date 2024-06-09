@@ -15,7 +15,7 @@ const M_PILLAR = 2;// 柱
 // 迷路の配列
 const maze   = Array.from(new Array(ROWS), ()=>new Array(COLS).fill(M_ROAD));
 const points = [];// 探索済み
-const routes = [];// 探索候補
+const routes = new PriorityQueue();// 探索候補
 
 const start = {r:1, c:1, stp:0, fR:0, fC:0};// Start
 const goal  = {r:ROWS-2, c:COLS-2};
@@ -38,17 +38,17 @@ window.onload = ()=>{
 	createMaze();// 迷路生成
 	showMaze();  // 迷路表示
 
-	points.push(start);// 探索済みに追加
-	routes.push(start);// 探索候補に追加
-	analyseMaze();     // 迷路探索
-	showPoints();      // 探索済み
-	showRoutes();      // 探索結果
+	points.push(start);   // 探索済みに追加
+	routes.enqueue(start);// 探索候補に追加
+	analyseMaze();        // 迷路探索
+	showPoints();         // 探索済み
+	showRoutes();         // 探索結果
 }
 
 function analyseMaze(){
 
-	// const route = routes.shift();// 先頭から取得(幅優先)
-	const route = routes.pop();// 先頭から取得(深度優先)
+	const route = routes.dequeue().node;// 優先度で取得
+
 	const sR    = route.r;
 	const sC    = route.c;
 	const stp   = route.stp;
@@ -71,14 +71,10 @@ function analyseMaze(){
 		const hue  = Math.abs(dR + dC);// マンハッタン距離
 		const from = {r:oR, c:oC, stp:stp+1, fR:sR, fC:sC, hue:hue};
 		points.push(from);// 探索済みに追加
-		routes.push(from);// 探索候補に追加
+		routes.enqueue(from, stp+1 + hue);// 探索候補に追加
 	}
 
-	if(0 < routes.length){
-		// Hue値でソート(A*アルゴリズム)
-		routes.sort((a, b)=>(a.stp + a.hue) < (b.stp + b.hue));
-		analyseMaze();// 再帰処理
-	}
+	if(0 < routes.size()) analyseMaze();// 再帰処理
 
 	return;
 }
