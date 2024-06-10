@@ -50,8 +50,8 @@ function draw(){
 
 function searchMaze(){
 
-	const route = routes.shift();// 先頭から取得(幅優先)
-	//const route = routes.pop();// 最後尾から取得(深度優先)
+	//const route = routes.shift();// 先頭から取得(幅優先)
+	const route = routes.pop();// 最後尾から取得(深度優先)
 	const sR    = route.r;
 	const sC    = route.c;
 	const stp   = route.stp;

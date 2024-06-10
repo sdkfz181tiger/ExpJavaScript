@@ -24,8 +24,7 @@ const goal   = {r:ROWS-2, c:COLS-2};// ゴール位置
 let cnt = 0;// トレース用
 
 function setup(){
-	//createCanvas(windowWidth, windowHeight);
-	createCanvas(950, 550);
+	createCanvas(windowWidth, windowHeight);
 	angleMode(DEGREES); frameRate(8);
 	fill(WHITE); noStroke();
 
