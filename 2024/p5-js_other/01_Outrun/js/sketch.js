@@ -12,7 +12,7 @@ let posY, posZ;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); frameRate(16);
+	angleMode(DEGREES); frameRate(48);
 	//fill(WHITE); noStroke();
 	stroke(WHITE); strokeWeight(1);
 
@@ -26,12 +26,12 @@ function setup(){
 		lines.push(line);
 		// 30~100までは左カーブ下り坂
 		if(30 <= i && i < 100){
-			line.curve = 2.8;
+			line.curve = 1.8;
 			line.bank  = 0.8;
 		}
 		// 100~200までは右カーブ上り坂
 		if(100 <= i && i < 200){
-			line.curve = -2.8;
+			line.curve = -1.8;
 			line.bank  = -0.8;
 		}
 	}
@@ -68,15 +68,26 @@ function draw(){
 
 		if(lB.y < lA.y) continue;
 
-		drawLine(lA);
+		let cRoad = (i%2==0) ? "#bbbbbb" : "#eeeeee";
+
+		drawShape(lA, lB, cRoad);
+		//drawLine(lA);
 	}
 }
 
-function drawShape(lA, lB){
-
+// 2つのラインオブジェクトを使って台形を描く
+function drawShape(lA, lB, c){
+	fill(c); noStroke();
+	beginShape();
+	vertex(lA.x-lA.w/2, lA.y);
+	vertex(lA.x+lA.w/2, lA.y);
+	vertex(lB.x+lB.w/2, lB.y);
+	vertex(lB.x-lB.w/2, lB.y);
+	endShape();
 }
 
 function drawLine(lA){
+	noFill(); stroke(WHITE);
 	line(lA.x-lA.w/2, lA.y, lA.x+lA.w/2, lA.y);
 }
 
