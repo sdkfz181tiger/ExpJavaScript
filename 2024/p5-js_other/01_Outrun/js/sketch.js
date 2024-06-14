@@ -5,14 +5,14 @@ const BLACK = "#000000";
 
 const S_DIST  = 50; // スクリーンまでの距離
 const R_WIDTH = 780;// 道の幅
-const R_DEPTH = 10; // 道の奥行き
+const R_DEPTH = 12; // 道の奥行き
 
 const lines = [];// ラインオブジェクトを格納する配列
 let posY, posZ;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); frameRate(48);
+	angleMode(DEGREES); frameRate(60);
 	//fill(WHITE); noStroke();
 	stroke(WHITE); strokeWeight(1);
 
@@ -24,13 +24,23 @@ function setup(){
 		const line = new MyLine();
 		line.project(0, posY, R_DEPTH*i);
 		lines.push(line);
-		// 30~100までは左カーブ下り坂
-		if(30 <= i && i < 100){
+		// 50~100までは左カーブ
+		if(50 <= i && i < 100){
 			line.curve = 1.8;
 			line.bank  = 0.8;
 		}
-		// 100~200までは右カーブ上り坂
-		if(100 <= i && i < 200){
+		// 100~150までは右カーブ
+		if(100 <= i && i < 150){
+			line.curve = -1.8;
+			line.bank  = 0.8;
+		}
+		// 150~200までは左カーブ
+		if(150 <= i && i < 200){
+			line.curve = 1.8;
+			line.bank  = -0.8;
+		}
+		// 200~250までは右カーブ
+		if(200 <= i && i < 250){
 			line.curve = -1.8;
 			line.bank  = -0.8;
 		}
@@ -40,7 +50,7 @@ function setup(){
 function draw(){
 	background(BLACK);
 
-	posZ += 5;// z位置を更新
+	posZ += 4;// z位置を更新
 
 	// カーブ
 	let oX = 0;
@@ -68,21 +78,24 @@ function draw(){
 
 		if(lB.y < lA.y) continue;
 
-		let cRoad = (i%2==0) ? "#bbbbbb" : "#eeeeee";
+		let cGrass = (i%2==0) ? "#33dd33" : "#33aa33";
+		let cSide  = (i%2==0) ? "#333333" : "#ffffff";
+		let cRoad  = (i%2==0) ? "#bbbbbb" : "#eeeeee";
 
-		drawShape(lA, lB, cRoad);
-		//drawLine(lA);
+		drawShape(lA.x, lA.y, width*4,  lB.x, lB.y, width*4,  cGrass);
+		drawShape(lA.x, lA.y, lA.w*1.2, lB.x, lB.y, lB.w*1.2, cSide);
+		drawShape(lA.x, lA.y, lA.w,     lB.x, lB.y, lB.w,     cRoad);
 	}
 }
 
 // 2つのラインオブジェクトを使って台形を描く
-function drawShape(lA, lB, c){
+function drawShape(x1, y1, w1, x2, y2, w2, c){
 	fill(c); noStroke();
 	beginShape();
-	vertex(lA.x-lA.w/2, lA.y);
-	vertex(lA.x+lA.w/2, lA.y);
-	vertex(lB.x+lB.w/2, lB.y);
-	vertex(lB.x-lB.w/2, lB.y);
+	vertex(x1-w1/2, y1);
+	vertex(x1+w1/2, y1);
+	vertex(x2+w2/2, y2);
+	vertex(x2-w2/2, y2);
 	endShape();
 }
 
