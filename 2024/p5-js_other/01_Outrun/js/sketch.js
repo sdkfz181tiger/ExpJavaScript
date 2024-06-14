@@ -1,9 +1,11 @@
 "use strict"
 
+// URL: https://openprocessing.org/sketch/957775
+
 const WHITE = "#ffffff";
 const BLACK = "#000000";
 
-const S_DIST  = 50; // スクリーンまでの距離
+const S_DIST  = 80; // スクリーンまでの距離
 const R_WIDTH = 780;// 道の幅
 const R_DEPTH = 12; // 道の奥行き
 
@@ -78,9 +80,9 @@ function draw(){
 
 		if(lB.y < lA.y) continue;
 
-		let cGrass = (i%2==0) ? "#33dd33" : "#33aa33";
-		let cSide  = (i%2==0) ? "#333333" : "#ffffff";
-		let cRoad  = (i%2==0) ? "#bbbbbb" : "#eeeeee";
+		let cGrass = (i%2==0) ? "#33dd33":"#33aa33";
+		let cSide  = (i%2==0) ? "#333333":"#ffffff";
+		let cRoad  = (i%2==0) ? "#bbbbbb":"#eeeeee";
 
 		drawShape(lA.x, lA.y, width*4,  lB.x, lB.y, width*4,  cGrass);
 		drawShape(lA.x, lA.y, lA.w*1.2, lB.x, lB.y, lB.w*1.2, cSide);
