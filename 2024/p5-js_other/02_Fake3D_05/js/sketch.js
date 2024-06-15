@@ -16,7 +16,8 @@ let eyeY = 400;
 let eyeZ = 0;
 
 function setup(){
-	createCanvas(windowWidth, windowHeight);
+	//createCanvas(windowWidth, windowHeight);
+	createCanvas(480, 320);
 	angleMode(DEGREES); frameRate(60);
 	noFill();
 	stroke(WHITE); strokeWeight(1);
@@ -30,8 +31,8 @@ function setup(){
 			line.bank = 0.8;
 		}
 		if(40<i && i<60){
-			line.curve = -0.8;
-			line.bank = -0.8;
+			line.curve = -0.5;
+			line.bank = -0.2;
 		}
 
 		line.project(eyeX, eyeY, R_DEPTH*i-eyeZ);
@@ -102,7 +103,7 @@ class MyLine{
 	}
 
 	project(x, y, z){// 2D空間の座標に変換
-		const s = SCREEN / (SCREEN+z);
+		const s = SCREEN / z;
 		this._x = x*s + width/2;
 		this._y = y*s + height/2;
 		this._w = R_WIDTH * s;
@@ -117,4 +118,8 @@ class MyLine{
 
 	set bank(n){this._b = n;}
 	get bank(){return this._b;}
+}
+
+function keyPressed() {
+	if(key === "s") saveGif("mySketch", 10);
 }

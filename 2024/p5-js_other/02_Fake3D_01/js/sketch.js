@@ -14,15 +14,16 @@ let eyeY = 400;
 let eyeZ = 0;
 
 function setup(){
-	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); frameRate(16);
+	//createCanvas(windowWidth, windowHeight);
+	createCanvas(480, 320);
+	angleMode(DEGREES); noLoop();
 	noFill();
 	stroke(WHITE); strokeWeight(1);
 
 	// x-z平面に10x10の点を用意する
 	const pad = 30;
 	for(let i=-5; i<5; i++){
-		for(let j=0; j<10; j++){
+		for(let j=0; j<30; j++){
 			const x = i * pad;
 			const y = 0;
 			const z = j * pad;
@@ -39,8 +40,10 @@ function draw(){
 	for(const point of points){
 		// 3D座標を2D座標に変換
 		const [x, y, s] = project(point.x-eyeX, point.y+eyeY, point.z-eyeZ);
-		circle(x, y, 10);
+		circle(x, y, 5);
 	}
+
+	saveCanvas("test.png");
 }
 
 // 3D座標を2D座標に変換する関数

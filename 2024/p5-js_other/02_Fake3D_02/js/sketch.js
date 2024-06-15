@@ -16,8 +16,9 @@ let eyeY = 400;
 let eyeZ = 0;
 
 function setup(){
-	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); frameRate(48);
+	//createCanvas(windowWidth, windowHeight);
+	createCanvas(480, 320);
+	angleMode(DEGREES); noLoop();
 	noFill();
 	stroke(WHITE); strokeWeight(1);
 
@@ -33,11 +34,13 @@ function draw(){
 	background(BLACK);
 	
 	// キャンバスに描画する
-	for(let i=0; i<40; i++){
+	for(let i=0; i<80; i++){
 		const lA = lines[i];
 		lA.project(eyeX, eyeY, R_DEPTH*i-eyeZ);
 		line(lA.x-lA.w/2, lA.y, lA.x+lA.w/2, lA.y);
 	}
+
+	saveCanvas("test.png");
 }
 
 // ラインオブジェクト(台形の横線で使う)
@@ -52,7 +55,7 @@ class MyLine{
 	}
 
 	project(x, y, z){// 2D空間の座標に変換
-		const s = SCREEN / (SCREEN+z);
+		const s = SCREEN / z;
 		this._x = x*s + width/2;
 		this._y = y*s + height/2;
 		this._w = R_WIDTH * s;
