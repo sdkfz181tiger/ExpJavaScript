@@ -5,53 +5,44 @@
 const WHITE = "#ffffff";
 const BLACK = "#000000";
 
-const S_DIST  = 80; // スクリーンまでの距離
-const R_WIDTH = 780;// 道の幅
-const R_DEPTH = 12; // 道の奥行き
+const SCREEN  = 80; // スクリーンまでの距離
+const R_WIDTH = 780;// 道の横幅
+const R_DEPTH = 10; // 道の奥行
 
 const lines = [];// ラインオブジェクトを格納する配列
-let posY, posZ;
+
+let eyeX = 0;  // 視線の座標
+let eyeY = 400;
+let eyeZ = 0;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
 	angleMode(DEGREES); frameRate(60);
+	noFill();
 	stroke(WHITE); strokeWeight(1);
 
-	// 位置を初期化
-	posY = 400;
-	posZ = 0;
-	// ラインオブジェクト
-	for(let i=0; i<300; i++){
+	// ラインオブジェクトを用意
+	for(let i=0; i<100; i++){
 		const line = new MyLine();
-		line.project(0, posY, R_DEPTH*i);
+
+		if(20<i && i<40){
+			line.curve = 0.8;
+			line.bank = 0.8;
+		}
+		if(40<i && i<60){
+			line.curve = -0.8;
+			line.bank = -0.8;
+		}
+
+		line.project(eyeX, eyeY, R_DEPTH*i-eyeZ);
 		lines.push(line);
-		// 50~100までは左カーブ
-		if(50 <= i && i < 100){
-			line.curve = 1.8;
-			line.bank  = 0.8;
-		}
-		// 100~150までは右カーブ
-		if(100 <= i && i < 150){
-			line.curve = -1.8;
-			line.bank  = 0.8;
-		}
-		// 150~200までは左カーブ
-		if(150 <= i && i < 200){
-			line.curve = 1.8;
-			line.bank  = -0.8;
-		}
-		// 200~250までは右カーブ
-		if(200 <= i && i < 250){
-			line.curve = -1.8;
-			line.bank  = -0.8;
-		}
 	}
 }
 
 function draw(){
 	background(BLACK);
 
-	posZ += 4;// z位置を更新
+	eyeZ += 2;// 視点を前へ
 
 	// カーブ
 	let oX = 0;
@@ -59,9 +50,9 @@ function draw(){
 	// 坂
 	let oY = 0;
 	let dY = 0;
-
-	// Linesを2D画面に描画する
-	const start = floor(posZ/R_DEPTH) + 1;
+	
+	// キャンバスに描画する
+	const start = floor(eyeZ/R_DEPTH) + 1;
 	for(let i=start; i<start+40; i++){
 		const iA = i % lines.length;
 		const iB = (0<iA) ? iA-1:lines.length-1;
@@ -74,8 +65,7 @@ function draw(){
 		oY += dY;
 		dY += lA.bank;// 次に描画するバンクの差分
 
-		// 2D画面に変換する
-		lA.project(-oX, posY-oY, R_DEPTH*i-posZ);
+		lA.project(eyeX-oX, eyeY-oY, R_DEPTH*i-eyeZ);
 
 		if(lB.y < lA.y) continue;
 
@@ -100,11 +90,6 @@ function drawShape(x1, y1, w1, x2, y2, w2, c){
 	endShape();
 }
 
-function drawLine(lA){
-	noFill(); stroke(WHITE);
-	line(lA.x-lA.w/2, lA.y, lA.x+lA.w/2, lA.y);
-}
-
 // ラインオブジェクト(台形の横線で使う)
 class MyLine{
 
@@ -117,7 +102,7 @@ class MyLine{
 	}
 
 	project(x, y, z){// 2D空間の座標に変換
-		const s = S_DIST / (S_DIST+z);
+		const s = SCREEN / (SCREEN+z);
 		this._x = x*s + width/2;
 		this._y = y*s + height/2;
 		this._w = R_WIDTH * s;
