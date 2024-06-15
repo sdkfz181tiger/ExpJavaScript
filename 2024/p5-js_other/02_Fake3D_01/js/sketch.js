@@ -15,7 +15,7 @@ let eyeZ = 0;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-	angleMode(DEGREES); noLoop();
+	angleMode(DEGREES); frameRate(16);
 	noFill();
 	stroke(WHITE); strokeWeight(1);
 
