@@ -1,0 +1,27 @@
+
+body{
+	margin: 0px; padding: 0px;
+}
+
+h1{
+	font: 6rem "Arial Black", sans-serif;
+	line-height: 2rem;
+}
+
+#msg1{
+	background: cornflowerblue;
+	color: white;
+	text-align: center;
+}
+
+#msg2{
+	background: tomato;
+	color: white;
+	text-align: center;
+}
+
+#msg3{
+	background: yellowgreen;
+	color: white;
+	text-align: center;
+}
