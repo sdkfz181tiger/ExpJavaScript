@@ -48,7 +48,7 @@ function draw(){
 
 // 3D座標を2D座標に変換する関数
 function project(x, y, z){
-	const s = SCREEN / (SCREEN+z);
+	const s = SCREEN / z;
 	const _x = x*s + width/2;
 	const _y = y*s + height/2;
 	return [_x, _y, s];
