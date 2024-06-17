@@ -21,23 +21,3 @@ h1{
 .fp-controlArrow.fp-next{
 	right: 3rem;
 }
-
-#msg1{
-	background: cornflowerblue;
-	color: white;
-}
-
-#msg2{
-	background: tomato;
-	color: white;
-}
-
-#msg3{
-	background: yellowgreen;
-	color: white;
-}
-
-#msg4{
-	background: mediumpurple;
-	color: white;
-}

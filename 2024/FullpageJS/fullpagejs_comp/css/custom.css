@@ -1,0 +1,51 @@
+
+body{
+	margin: 0px; padding: 0px;
+	font: 2rem "Arial", sans-serif;
+	text-align: center;
+}
+
+h1{
+	font: 6rem "Arial Black", sans-serif;
+	line-height: 2rem;
+}
+
+#fp-nav ul li a span{
+	background: white;
+}
+
+.fp-controlArrow.fp-prev{
+	left: 3rem;
+}
+
+.fp-controlArrow.fp-next{
+	right: 3rem;
+}
+
+#msg1{
+	background: cornflowerblue;
+	background-image: url("../images/ptn_01.png");
+	background-repeat: repeat;
+	color: white;
+}
+
+#msg2{
+	background: tomato;
+	background-image: url("../images/ptn_02.png");
+	background-repeat: repeat;
+	color: white;
+}
+
+#msg3{
+	background: yellowgreen;
+	background-image: url("../images/ptn_03.png");
+	background-repeat: repeat;
+	color: white;
+}
+
+#msg4{
+	background: mediumpurple;
+	background-image: url("../images/ptn_04.png");
+	background-repeat: repeat;
+	color: white;
+}
