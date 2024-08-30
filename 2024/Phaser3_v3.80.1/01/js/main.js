@@ -89,7 +89,7 @@ function create(){
 
 	// Animation
 	this.anims.create({
-		key: "front", frameRate: 10, repeat: 1,
+		key: "front", frameRate: 10, repeat: 0,
 		frames: this.anims.generateFrameNumbers("ninja", {start: 0, end: 4}),
 	});
 	this.anims.create({
@@ -140,25 +140,31 @@ function create(){
 	// Bounds, Follow
 	this.cameras.main.setBounds(0, 0, D_WIDTH*2, D_HEIGHT);
 	this.cameras.main.startFollow(player);
+
+	// Keyboard
+	this.input.keyboard.on("keydown", event =>{
+		if(event.key == "ArrowLeft"){
+			player.setVelocityX(-100);
+			player.anims.play("left", true);
+		}
+		if(event.key == "ArrowRight"){
+			player.setVelocityX(100);
+			player.anims.play("right", true);
+		}
+		if(event.key == "ArrowUp"){
+			player.setVelocityY(-300);
+			player.anims.play("front", true);
+		}
+	});
+
+	this.input.keyboard.on("keyup", event =>{
+		player.setVelocityX(0);
+		player.anims.play("front");
+	});
 }
 
 function update(){
-
-	// Cursors
-	const cursors = this.input.keyboard.createCursorKeys();
-
-	if(cursors.up.isDown){
-		player.setVelocityY(-200);
-	}else if(cursors.left.isDown){
-		player.setVelocityX(-100);
-		player.anims.play("left", true);
-	}else if(cursors.right.isDown){
-		player.setVelocityX(+100);
-		player.anims.play("right", true);
-	}else{
-		player.setVelocityX(0);
-		player.anims.play("front");
-	}
+	// Do something
 }
 
 function overlap(player, tgt){
