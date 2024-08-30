@@ -38,9 +38,9 @@ function preload(){
 	this.load.image("ground_16x12", "assets/ground_16x12.png");
 	this.load.image("ground_32x12", "assets/ground_32x12.png");
 	this.load.image("ground_48x12", "assets/ground_48x12.png");
-	this.load.image("food_01",      "assets/food_01.png");
-	this.load.image("food_02",      "assets/food_02.png");
-	this.load.image("food_03",      "assets/food_03.png");
+	this.load.image("burger",       "assets/food_burger.png");
+	this.load.image("drink",        "assets/food_drink.png");
+	this.load.image("potato",       "assets/food_potato.png");
 
 	// Load spriteSheet
 	this.load.spritesheet("ninja", "assets/ninja_n_01.png",
@@ -75,14 +75,14 @@ function create(){
 	staticGroup.create(240-160, 320-100, "ground_32x12");
 	staticGroup.create(240,     320-60,  "ground_48x12");
 	staticGroup.create(240+180, 320-200, "ground_48x12");
-	staticGroup.children.iterate((child)=>{
+	staticGroup.children.iterate(child=>{
 		child.setScale(2).refreshBody();
 	});
 
 	// Player
 	player = this.physics.add.sprite(D_WIDTH/2, D_HEIGHT/2, "ninja");
 	player.setBounce(0.1);
-	player.setScale(3);
+	player.setScale(2);
 	player.body.setSize(player.width*0.5, player.height*1.0);
 	player.refreshBody();
 	//player.setCollideWorldBounds(true);
@@ -104,23 +104,23 @@ function create(){
 
 	// Foods
 	const foods01 = this.physics.add.group({
-		key: "food_01", repeat: 5,
+		key: "burger", repeat: 5,
 		setXY: {x: 0, y: 0, stepX: 96}});
-	foods01.children.iterate((child)=>{
+	foods01.children.iterate(child=>{
 		child.setScale(2).refreshBody();
 	});
 
 	const foods02 = this.physics.add.group({
-		key: "food_02", repeat: 5,
+		key: "drink", repeat: 5,
 		setXY: {x: 32, y: 0, stepX: 96}});
-	foods02.children.iterate((child)=>{
+	foods02.children.iterate(child=>{
 		child.setScale(2).refreshBody();
 	});
 
 	const foods03 = this.physics.add.group({
-		key: "food_03", repeat: 5,
+		key: "potato", repeat: 5,
 		setXY: {x: 64, y: 0, stepX: 96}});
-	foods03.children.iterate((child)=>{
+	foods03.children.iterate(child=>{
 		child.setScale(2).refreshBody();
 	});
 
@@ -142,7 +142,7 @@ function create(){
 	this.cameras.main.startFollow(player);
 
 	// Keyboard
-	this.input.keyboard.on("keydown", event =>{
+	this.input.keyboard.on("keydown", event=>{
 		if(event.key == "ArrowLeft"){
 			player.setVelocityX(-100);
 			player.anims.play("left", true);
@@ -157,7 +157,7 @@ function create(){
 		}
 	});
 
-	this.input.keyboard.on("keyup", event =>{
+	this.input.keyboard.on("keyup", event=>{
 		player.setVelocityX(0);
 		player.anims.play("front");
 	});
