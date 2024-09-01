@@ -145,7 +145,7 @@ function create(){
 	//this.physics.add.overlap(player, foods03, overlap, null, this);
 
 	// Bounds, Follow
-	this.cameras.main.setBounds(0, 0, D_WIDTH*2, D_HEIGHT);
+	//this.cameras.main.setBounds(0, 0, D_WIDTH*2, D_HEIGHT);
 	this.cameras.main.startFollow(player);
 
 	// Keyboard
@@ -176,7 +176,7 @@ function update(){
 	staticGroup.children.iterate(child=>{
 		if(child.x + child.width < player.x - D_WIDTH/2){
 			child.x += 4 * 128;
-			child.y += 30;
+			//child.y += 30;
 			child.refreshBody();
 		}
 	});
