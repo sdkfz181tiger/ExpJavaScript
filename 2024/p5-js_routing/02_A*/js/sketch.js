@@ -41,7 +41,7 @@ function draw(){
 	showMaze();// 迷路表示
 
 	cnt += 20;// トレース用
-	saveCanvas("test_" + floor(cnt/20) + ".png");// Save
+	//saveCanvas("test_" + floor(cnt/20) + ".png");// Save
 }
 
 //==========
