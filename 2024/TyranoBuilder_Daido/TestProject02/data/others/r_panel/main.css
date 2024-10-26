@@ -1,0 +1,28 @@
+/* ResultPanel */
+:root{
+	--rp_panel-width: 300px;
+	--rp_panel-open: 0px;
+	--rp_panel-close: -300px;
+}
+
+.rp_panel{
+	width: var(--rp_panel-width); height: 100%;
+	margin: 50px 0px 0px 0px; padding: 0px;
+	position: absolute; left: var(--rp_panel-close); top: 0px;
+	background-color: rgba(33, 33, 33, 0.5);
+}
+
+.rp_toggle{
+	width: 64px; height: auto;
+	position: relative; left: var(--rp_panel-width); top: 0;
+}
+
+.rp_panel_open{
+	left: var(--rp_panel-open);
+	transition: 0.5s;
+}
+
+.rp_panel_close{
+	left: var(--rp_panel-close);
+	transition: 0.5s;
+}
