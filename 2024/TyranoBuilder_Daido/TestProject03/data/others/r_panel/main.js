@@ -41,13 +41,29 @@ function refleshPanel(){
 		const key = keys[i];
 		const num = nums[i];
 		const rp_li = $('<li class="rp_li"></li>');
-		rp_li.append(key + ":" + num + "%");
+		rp_li.append(key[0]);
 		rp_ul.append(rp_li);
+
+		// Detail
+		const rp_detail_table = $('<table class="rp_detail_table"></table>');
+		rp_li.append(rp_detail_table);
+		const rp_tr = $('<tr></tr>');
+		rp_detail_table.append(rp_tr);
+		const rp_td_left = $('<td class="rp_td_side"></td>');
+		rp_tr.append(rp_td_left);
+		const rp_td_center = $('<td></td>');
+		rp_tr.append(rp_td_center);
+		const rp_td_right = $('<td class="rp_td_side"></td>');
+		rp_tr.append(rp_td_right);
+
+		rp_td_left.append(key[1] + "<br/>" + num + "%");	
+		rp_td_right.append(key[2] + "<br/>" + (100-num) + "%");	
+
 		// Bar
 		const rp_bar_box = $('<div class="rp_bar_box"></div>');
-		rp_li.append(rp_bar_box);
+		rp_td_center.append(rp_bar_box);
 		const rp_bar_meter = $('<div class="rp_bar_meter"></div>');
 		rp_bar_meter.css("width", num+"%");
-		rp_bar_box.append(rp_bar_meter);	
+		rp_bar_box.append(rp_bar_meter);
 	}
 }

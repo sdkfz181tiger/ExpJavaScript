@@ -1,14 +1,14 @@
 /* ResultPanel */
 :root{
-	--rp_panel-width: 200px;
-	--rp_panel-height: 240px;
+	--rp_panel-width: 300px;
+	--rp_panel-height: auto;
 	--rp_panel-open: 0px;
-	--rp_panel-close: -200px;
+	--rp_panel-close: -300px;
 }
 
 .rp_panel{
 	width: var(--rp_panel-width); height: var(--rp_panel-height);
-	margin: 50px 0px 0px 0px; padding: 0px;
+	margin: 50px 0px 0px 0px; padding: 0px 0px 30px 0px;
 	position: absolute; left: var(--rp_panel-close); top: 0px;
 	background-color: rgba(33, 33, 33, 0.5);
 }
@@ -41,13 +41,24 @@
 	margin: 0px; padding: 0px;
 	position: relative; left: 0px; top: 0px;
 	color: white;
-	font-size: 0.8em; font-weight: bold;
+	font-size: 0.7em; font-weight: bold;
 }
 
 .rp_li{
 	width: auto; height: auto;
 	margin: 0px; padding: 0px 10px;
-	background-color: black;
+	text-align: center;
+}
+
+.rp_detail_table{
+	width: 100%; height: auto;
+	margin: 0px 0px 10px 0px; padding: 0px;
+}
+
+.rp_td_side{
+	width: 14%; height: auto;
+	margin: 0px; padding: 0px;
+	text-align: center;
 }
 
 .rp_bar_box{
