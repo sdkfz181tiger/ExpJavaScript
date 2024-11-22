@@ -1,0 +1,75 @@
+/* ResultPanel */
+:root{
+	--rp_panel-width: 300px;
+	--rp_panel-height: auto;
+	--rp_panel-open: 0px;
+	--rp_panel-close: -300px;
+}
+
+.rp_panel{
+	width: var(--rp_panel-width); height: var(--rp_panel-height);
+	margin: 40px 0px 0px 0px; padding: 0px 0px 20px 0px;
+	position: absolute; left: var(--rp_panel-close); top: 0px;
+	background-color: rgba(255, 255, 255, 0.65); border-radius: 0px 10px 10px 0px;
+	color: midnightblue;
+}
+
+.rp_toggle{
+	width: 64px; height: auto;
+	position: relative; left: var(--rp_panel-width); top: 0;
+}
+
+.rp_panel_open{
+	left: var(--rp_panel-open);
+	transition: 0.5s;
+}
+
+.rp_panel_close{
+	left: var(--rp_panel-close);
+	transition: 0.5s;
+}
+
+.rp_title{
+	width: 100%; height: auto;
+	margin: auto; padding: 5px 0px;
+	font-size: 1.2em; font-weight: bold;
+	text-align: center;
+}
+
+.rp_ul{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+	position: relative; left: 0px; top: 0px;
+	font-size: 1.0em; font-weight: bold;
+}
+
+.rp_li{
+	width: auto; height: auto;
+	margin: 0px; padding: 0px 10px;
+	text-align: center;
+}
+
+.rp_detail_table{
+	width: 100%; height: auto;
+	margin: 0px 0px 10px 0px; padding: 0px;
+	font-size: 0.8em; font-weight: bold;
+	line-height: 1.4;
+}
+
+.rp_td_side{
+	width: 14%; height: auto;
+	margin: 0px; padding: 0px;
+	text-align: center;
+}
+
+.rp_bar_box{
+	width: 100%; height: 10px;
+	margin: 0px; padding: 0px;
+	background-color: blue; border-radius: 5px;
+}
+
+.rp_bar_meter{
+	width: 50%; height: 10px;
+	margin: 0px; padding: 0px;
+	background-color: yellow; border-radius: 5px 0px 0px 5px;
+}
