@@ -1,0 +1,18 @@
+/* CSS */
+
+html, body{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+	background-color: floralwhite;
+}
+
+/* 縦書き */
+
+#target{
+	width: 480px; height: 600px;
+	margin: 0px; padding: 0px;
+	line-height: 1.5;
+	background-color: silver;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+}
