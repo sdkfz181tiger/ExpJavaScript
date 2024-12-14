@@ -1,0 +1,90 @@
+/* ResultPanel */
+:root{
+	--rp_panel-width: 100%;
+	--rp_panel-height: 110px;
+	--rp_panel-open: 0px;
+	--rp_panel-close: -110px;
+	--rp_1force-width: 100px;
+}
+
+.rp_panel{
+	width: var(--rp_panel-width); height: var(--rp_panel-height);
+	margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;
+	position: absolute; top: var(--rp_panel-close);
+}
+
+.rp_toggle{
+	width: 32px; height: 32px;
+	margin: 0px; padding: 0px;
+	position: absolute; z-index: 4001;
+	left: calc(var(--rp_panel-width) - 40px); top: var(--rp_panel-height);
+}
+
+.rp_panel_open{
+	top: var(--rp_panel-open);
+	transition: 0.5s;
+}
+
+.rp_panel_close{
+	top: var(--rp_panel-close);
+	transition: 0.5s;
+}
+
+.rp_5forces{
+	width: auto; height: auto;
+	margin: 5px 5px 0px 0px; padding: 0px 0px 0px 0px;
+	position: absolute; right: 0px; display: flex;
+	/*background-color: rgba(100, 200, 100, 0.4); border-radius: 0px;*/
+}
+
+.rp_1force{
+	width: var(--rp_1force-width); height: var(--rp_1force-width);
+	margin: 0px 0px 0px 4px; padding: 0px 0px 0px 0px;
+	position: relative; right: 0px; z-index: 1001;
+	background-color: rgba(255, 255, 255, 0.4); border-radius: 10px;
+}
+
+.rp_1force_a{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+	position: absolute; top: 0px; left: 0px; z-index: 2001;
+}
+
+.rp_1force_b{
+	width: 100%; height: 100%;
+	margin: 0px; padding: 0px;
+	position: absolute; top: 0px; left: 0px; z-index: 3001;
+}
+
+.rp_1force_title{
+	width: 100%; height: auto;
+	margin: auto; padding: 4px 0px 8px 0px;
+	font-size: 1.2em; font-weight: bold;
+	text-align: center;
+}
+
+.rp_1force_num{
+	width: 100%; height: auto;
+	margin: auto; padding: 4px 0px 8px 0px;
+	font-size: 3.0em; font-weight: bold; line-height: 0.5;
+	text-align: center;
+}
+
+.rp_1force_text{
+	width: 100%; height: auto;
+	margin: auto; padding: 4px 0px 8px 0px;
+	font-size: 0.8em; font-weight: bold; line-height: 1.2;
+	text-align: center;
+}
+
+.rp_canvas{
+	width: auto; height: auto;
+	margin: auto; padding: 0px;
+	position: absolute; left: 0px;
+}
+
+.rp_canvas canvas{
+	width: 100px; height: 100px;
+	margin: auto; padding: 0px;
+	position: absolute; left: 0px;
+}
