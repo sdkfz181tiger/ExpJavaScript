@@ -90,8 +90,11 @@ function append1Force(key, num){
 
 	// Text
 	const rp_1force_text = $('<div class="rp_1force_text"></div>');
-
 	// 2025/01/17: 3段階に変更
+	// 0  ~ 35
+	// 36 ~ 65
+	// 66 ~ 100
+	// の範囲で変化します。(調整してみてね)
 	console.log("num:", num);
 	let force_text = "*";
 	if(num <= 35){
@@ -102,7 +105,6 @@ function append1Force(key, num){
 		force_text = key[3];
 	}
 	rp_1force_text.text(force_text);
-	//rp_1force_text.text((num <= 50) ? key[1]:key[2]);
 	rp_1force_b.append(rp_1force_text);
 
 	// Chart
