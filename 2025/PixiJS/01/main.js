@@ -20,7 +20,7 @@ app.stage.addChild(sprite);
 // 円運動するサンプル
 let elapsed = 0.0;
 app.ticker.add((ticker) => {
-	elapsed += ticker.deltaTime;
-	sprite.x = cX + Math.cos(elapsed/30.0) * 80.0;
-	sprite.y = cY + Math.sin(elapsed/50.0) * 80.0;
+  elapsed += ticker.deltaTime;
+  sprite.x = cX + Math.cos(elapsed / 30.0) * 80.0;
+  sprite.y = cY + Math.sin(elapsed / 50.0) * 80.0;
 });

@@ -20,11 +20,11 @@ app.stage.addChild(sprite);
 // 拡大,縮小するサンプル
 let scaleDirection = 1; // 拡大・縮小の方向
 app.ticker.add(() => {
-    sprite.scale.x += 0.01 * scaleDirection;
-    sprite.scale.y += 0.01 * scaleDirection;
+  sprite.scale.x += 0.01 * scaleDirection;
+  sprite.scale.y += 0.01 * scaleDirection;
 
-    // 拡大・縮小の切り替え
-    if (sprite.scale.x > 1.5 || sprite.scale.x < 0.5) {
-        scaleDirection *= -1;
-    }
+  // 拡大・縮小の切り替え
+  if (sprite.scale.x > 1.5 || sprite.scale.x < 0.5) {
+    scaleDirection *= -1;
+  }
 });
